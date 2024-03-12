@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".contoeconomico"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/popup_button_ce"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:baselineAligned="false"
+        android:text="menu" />
+
+    <TextView
+        android:layout_width="131dp"
+        android:layout_height="53dp"
+        android:translationY="-50dp"
+        android:text="CONTO ECONOMICO"
+        android:textColor="#1e90ff"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:layout_width="189dp"
+        android:layout_height="55dp"
+        android:text="A) VALORE DELLA PRODUZIONE"
+        android:textColor="#FF0000"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/edittext_ricavi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ricavi delle vendite e delle prestazioni"
+        android:inputType="numberDecimal|numberSigned"/>
+
+    <EditText
+        android:id="@+id/edittext_variazione_rimanenze"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Variazione rimanenze di prodotti in corso di lavorazione, semil. e finiti"
+        android:inputType="numberDecimal|numberSigned"/>
+
+    <EditText
+        android:id="@+id/edittext_variazione_lavori_in_corso"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Variazione dei lavori in corso su ordinazione"
+        android:inputType="numberDecimal|numberSigned"/>
+
+    <EditText
+        android:id="@+id/edittext_incrementi_immobilizzazioni"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Incrementi di immobilizzazioni per lavori interni"
+        android:inputType="numberDecimal|numberSigned"/>
+
+    <EditText
+        android:id="@+id/edittext_altri_ricavi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Altri ricavi e proventi"
+        android:inputType="numberDecimal|numberSigned"/>
+
+    <TextView
+        android:layout_width="189dp"
+        android:layout_height="55dp"
+        android:text="B) COSTI DELLA PRODUZIONE"
+        android:textColor="#FF0000"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+    <EditText
+        android:id="@+id/edittext_costi_per_acquisti"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Per materie prime, sussidiarie, di consumo e merci"
+        android:inputType="numberDecimal|numberSigned"/>
+
+    <EditText
+        android:id="@+id/edittext_costi_per_servizi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Per servizi"
+        android:inputType="numberDecimal|numberSigned"/>
+
+    <EditText
+        android:id="@+id/edittext_costi_per_godimento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Per godimento di beni di terzi"
+        android:inputType="numberDecimal|numberSigned"/>
+
+    <TextView
+        android:id="@+id/tw_personale"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Per il personale"
+        android:textColor="#c0c0c0"
+        android:textSize="18sp"
+        android:textStyle="bold"
+
+        />
+    <EditText
+        android:id="@+id/edittext_salari"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Salari e stipendi"
+        android:inputType="numberDecimal|numberSigned"/>
+
+    <EditText
+        android:id="@+id/edittext_oneri_sociali"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Oneri sociali"
+        android:inputType="numberDecimal|numberSigned"/>
+
+    <EditText
+        android:id="@+id/edittext_trattamento_fine_rapporto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Trattamento di fine rapporto"
+        android:inputType="numberDecimal|numberSigned"/>
+
+    <EditText
+        android:id="@+id/edittext_trattamento_quiescenza"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Trattamento di quiescenza e simili"
+        android:inputType="numberDecimal|numberSigned"/>
+
+    <EditText
+        android:id="@+id/edittext_altri_costi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Altri costi"
+        android:inputType="numberDecimal|numberSigned"/>
+    <TextView
+        android:id="@+id/tw_ammortamenti"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ammortamenti e svalutazioni"
+        android:textColor="#c0c0c0"
+        android:textSize="18sp"
+        android:textStyle="bold"
+
+        />
+    <EditText
+        android:id="@+id/edittext_ammortamento_immobilizzazioni_immateriali"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="a) Ammortamento immobilizzazioni immateriali"
+        android:inputType="numberDecimal|numberSigned"/>
+
+    <EditText
+        android:id="@+id/edittext_ammortamento_immobilizzazioni_materiali"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="b) Ammortamento immobilizzazioni materiali"
+        android:inputType="numberDecimal|numberSigned"/>
+
+    <EditText
+        android:id="@+id/edittext_altre_svalutazioni_immobilizzazioni"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="c) Altre svalutazioni delle immobilizzazioni"
+        android:inputType="numberDecimal|numberSigned"/>
+
+    <EditText
+        android:id="@+id/edittext_svalutazione_crediti"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="d) Svalutazione dei crediti compresi all'attivo circolante e delle disp. Liq."
+        android:inputType="numberDecimal|numberSigned"/>
+
+    <EditText
+        android:id="@+id/edittext_variazione_rimanenzee"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Variazione delle rimanenze di materie prime, sussidiarie, di consumo e di merci"
+        android:inputType="numberDecimal|numberSigned"/>
+
+    <EditText
+        android:id="@+id/edittext_accantonamenti_rischi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Accantonamenti per rischi"
+        android:inputType="numberDecimal|numberSigned"/>
+
+    <EditText
+        android:id="@+id/edittext_altri_accantonamenti"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Altri accantonamenti"
+        android:inputType="numberDecimal|numberSigned"/>
+
+    <EditText
+        android:id="@+id/edittext_oneri_diversi_gestione"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Oneri diversi di gestione"
+        android:inputType="numberDecimal|numberSigned"/>
+    <TextView
+        android:layout_width="189dp"
+        android:layout_height="55dp"
+        android:text="C) PROVENTI E ONERI FINANZIARI"
+        android:textColor="#FF0000"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+    <EditText
+        android:id="@+id/edittext_imp_controllate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Imprese controllate"
+        android:inputType="numberDecimal|numberSigned"/>
+    <EditText
+        android:id="@+id/edittext_imp_collegate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Imprese collegate"
+        android:inputType="numberDecimal|numberSigned"/>
+    <EditText
+        android:id="@+id/edittext_imp_controllanti"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Imprese controllanti"
+        android:inputType="numberDecimal|numberSigned"/>
+    <EditText
+        android:id="@+id/edittext_imp_sottoposte_controllo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Imprese sottoposte al controllo"
+        android:inputType="numberDecimal|numberSigned"/>
+
+    <EditText
+        android:id="@+id/edittext_altre_imprese"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Altre imprese"
+        android:inputType="numberDecimal|numberSigned"/>
+
+
+
+    <EditText
+        android:id="@+id/edittext_altri_proventi_finanziari"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Altri proventi finanziari"
+        android:inputType="numberDecimal|numberSigned"/>
+
+    <EditText
+        android:id="@+id/edittext_interessi_oneri_finanziari"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Interessi ed altri oneri finanziari"
+        android:inputType="numberDecimal|numberSigned"/>
+
+    <TextView
+        android:layout_width="206dp"
+        android:layout_height="67dp"
+        android:text="D) RETTIFICHE DI VALORE DI ATTIVITA' FINANZIARIE"
+        android:textColor="#FF0000"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+    <EditText
+        android:id="@+id/edittext_partecipazioni"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Partecipazioni"
+        android:inputType="numberDecimal|numberSigned"/>
+    <EditText
+        android:id="@+id/edittext_immobili_finanziari"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Immobili finanziari"
+        android:inputType="numberDecimal|numberSigned"/>
+
+    <EditText
+        android:id="@+id/edittext_titoli_attivo_circolante"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Titoli iscritti nell'attivo circolante"
+        android:inputType="numberDecimal|numberSigned"/>
+
+    <EditText
+        android:id="@+id/edittext_strumenti_finanziari_derivati"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Strumenti finanziari derivati"
+        android:inputType="numberDecimal|numberSigned"/>
+
+    <EditText
+        android:id="@+id/edittext_partecipazioni_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Partecipazioni"
+        android:inputType="numberDecimal|numberSigned"/>
+    <EditText
+        android:id="@+id/edittext_immobili_finanziari_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Immobili finanziari"
+        android:inputType="numberDecimal|numberSigned"/>
+
+    <EditText
+        android:id="@+id/edittext_titoli_attivo_circolante_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Titoli iscritti nell'attivo circolante"
+        android:inputType="numberDecimal|numberSigned"/>
+
+    <EditText
+        android:id="@+id/edittext_strumenti_finanziari_derivati_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Strumenti finanziari derivati"
+        android:inputType="numberDecimal|numberSigned"/>
+    <TextView
+        android:layout_width="206dp"
+        android:layout_height="67dp"
+        android:text="E) PROVENTI E ONERI STRAORDINARI"
+        android:textColor="#FF0000"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+    <EditText
+        android:id="@+id/proventi_straordinari"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Proventi straordinari"
+        android:inputType="numberDecimal|numberSigned"/>
+    <EditText
+        android:id="@+id/oneri_straordinari"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Oneri straordinari"
+        android:inputType="numberDecimal|numberSigned"/>
+
+    <EditText
+        android:id="@+id/edittext_imposte_reddito_esercizio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Imposte sul reddito dell'esercizio"
+        android:inputType="numberDecimal|numberSigned"/>
+
+    <Button
+        android:id="@+id/salvace"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="SALVA CONTO ECONOMICO"
+        tools:ignore="MissingConstraints" />
+</LinearLayout>
+</ScrollView>

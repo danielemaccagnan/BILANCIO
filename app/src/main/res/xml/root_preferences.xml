@@ -1,0 +1,44 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Sezione Tema -->
+    <PreferenceCategory
+        android:title="TEMA">
+
+        <ListPreference
+            android:key="theme"
+            android:title="Seleziona tema"
+            android:summary="Chiaro, Scuro o Default"
+            android:entries="@array/theme_options"
+            android:defaultValue="system"
+            android:entryValues="@array/theme_values" />
+
+    </PreferenceCategory>
+
+    <!-- Sezione Altri -->
+    <PreferenceCategory
+        android:title="ALTRI">
+
+        <Preference
+            android:key="review"
+            android:title="Recensisci questa app"
+            android:summary="Lascia una recensione su Google Play"/>
+
+        <Preference
+            android:key="share"
+            android:title="Condividi"
+            android:summary="Condividi questa app con i tuoi amici"/>
+
+    </PreferenceCategory>
+
+    <!-- Sezione Versione -->
+    <PreferenceCategory
+        android:title="VERSIONE">
+
+        <Preference
+            android:key="version"
+            android:title="Versione attuale"
+            android:summary="1.0"/>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
