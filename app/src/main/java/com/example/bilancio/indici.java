@@ -17,36 +17,29 @@ public class indici extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // inizializza l'istanza della classe ExcelFileSaver
-        ExcelFileSaverIndici fileSaver = new ExcelFileSaverIndici(this);
-        contoeconomico e = new contoeconomico();
-        double x = e.getRicavi();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_indici);
         Button salvaa = findViewById(R.id.salvaindici);
         salvaa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-// crea una nuova istanza di ExcelFileSaver e esegui il salvataggio
-                ExcelFileSaverIndici fileSaver = new ExcelFileSaverIndici(context);
-               XSSFWorkbook workbook = new XSSFWorkbook();
+                // Crea una nuova istanza di IndiciDiBilancioSaver
+                IndiciDiBilancioSaver fileSaver = new IndiciDiBilancioSaver(context);
+
+                // Crea un nuovo workbook e imposta i valori
+                XSSFWorkbook workbook = new XSSFWorkbook();
                 XSSFSheet sheet = workbook.createSheet("Indici");
                 XSSFRow row1 = sheet.createRow(0);
                 XSSFCell A1 = row1.createCell(0);
                 XSSFCell B1 = row1.createCell(1);
                 XSSFCell C1 = row1.createCell(2);
+                contoeconomico e = new contoeconomico();
+                double x = e.getRicavi();
                 A1.setCellValue(x);
 
-                // Salvataggio del file
+                // Esegui il salvataggio del file
                 fileSaver.execute(workbook);
-
             }
         });
-
-
-
-
-
-
     }
 }

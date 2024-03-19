@@ -55,7 +55,7 @@
             android:minHeight="48dp" />
 
         <TextView
-            android:layout_width="171dp"
+            android:layout_width="308dp"
             android:layout_height="56dp"
             android:text="B) IMMOBILIZZAZIONI"
             android:textColor="#FF0000"

@@ -1,20 +1,444 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".indici">
 
-    <Button
-        android:id="@+id/salvaindici"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="SALVA"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.542"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.211" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/popup_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|end"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:baselineAligned="false"
+            android:text="menu" />
+
+        <TextView
+            android:layout_width="131dp"
+            android:layout_height="53dp"
+            android:translationY="-50dp"
+            android:text="INDICI DI BILANCIO"
+            android:textColor="#1e90ff"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="76dp"
+            android:layout_gravity="center"
+            android:text="INDICI DI SOLIDITÀ"
+            android:textColor="#007AFF"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="INDEBITAMENTO GLOBALE"
+            android:textColor="#FF0000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/capitale_di_terzi_ind_globale"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Capitale di terzi"
+            android:inputType="numberDecimal|numberSigned"
+            android:minHeight="48dp" />
+
+        <EditText
+            android:id="@+id/patrimonio_netto_ind_globale"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Patrimonio netto"
+            android:inputType="numberDecimal|numberSigned"
+            android:minHeight="48dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="INDEBITAMENTO STRUTTURALE"
+            android:textColor="#FF0000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/banca_ind_strutturale"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Banca c/c passivo"
+            android:inputType="numberDecimal|numberSigned"
+            android:minHeight="48dp" />
+
+        <EditText
+            android:id="@+id/quotamutuipassivi_ind_strutturale"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Quota mutui passivi"
+            android:inputType="numberDecimal|numberSigned"
+            android:minHeight="48dp" />
+
+        <EditText
+            android:id="@+id/mutuipassivi_ind_strutturale"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Mutui passivi"
+            android:inputType="numberDecimal|numberSigned"
+            android:minHeight="48dp" />
+
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="ESIGIBILITÀ DEL PASSIVO"
+            android:textColor="#FF0000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/pas_brevetermine_ind_esigibilità"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Passività a breve termine"
+            android:inputType="numberDecimal|numberSigned"
+            android:minHeight="48dp" />
+
+        <EditText
+            android:id="@+id/patrimonio_netto_ind_esigibilità"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Patrimonio netto"
+            android:inputType="numberDecimal|numberSigned"
+            android:minHeight="48dp" />
+
+        <TextView
+            android:layout_width="317dp"
+            android:layout_height="wrap_content"
+            android:text="GRADO DI RIGIDITÀ DELL'ATTIVO"
+            android:textColor="#FF0000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/attivo_fisso_netto_ind_rigidità_attivo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Attivo fisso netto"
+            android:inputType="numberDecimal|numberSigned"
+            android:minHeight="48dp" />
+
+        <EditText
+            android:id="@+id/attivo_totale_netto_ind_rigidità_attivo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Attivo totale netto"
+            android:inputType="numberDecimal|numberSigned"
+            android:minHeight="48dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GRADO DI ELASTICITÀ DELL'ATTIVO"
+            android:textColor="#FF0000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+
+        <EditText
+            android:id="@+id/attivo_a_breve_ind_elasticità_attivo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Attività a breve"
+            android:inputType="numberDecimal|numberSigned"
+            android:minHeight="48dp" />
+
+
+        <EditText
+            android:id="@+id/attivo_totale_netto_ind_elasticità_attivo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Attivo totale netto"
+            android:inputType="numberDecimal|numberSigned"
+            android:minHeight="48dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GRADO DI COPERTURA DELL'ATTIVO I LIVELLO"
+            android:textColor="#FF0000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/patrimonio_netto_ind_grado_di_copertura_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Patrimonio netto"
+            android:inputType="numberDecimal|numberSigned"
+            android:minHeight="48dp" />
+
+        <EditText
+            android:id="@+id/attivo_totale_netto_ind_grado_di_copertura_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Attivo totale netto"
+            android:inputType="numberDecimal|numberSigned"
+            android:minHeight="48dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GRADO DI COPERTURA DELL'ATTIVO II LIVELLO"
+            android:textColor="#FF0000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/patrimonio_netto_ind_grado_di_copertura_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Patrimonio netto"
+            android:inputType="numberDecimal|numberSigned"
+            android:minHeight="48dp" />
+
+        <EditText
+            android:id="@+id/passivo_medio_lungo_termine_ind_grado_di_copertura_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Passività a medio/lungo termine"
+            android:inputType="numberDecimal|numberSigned"
+            android:minHeight="48dp" />
+
+
+        <EditText
+            android:id="@+id/attivo_totale_netto_ind_grado_di_copertura_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Attivo totale netto"
+            android:inputType="numberDecimal|numberSigned"
+            android:minHeight="48dp" />
+
+
+        <TextView
+            android:layout_width="247dp"
+            android:layout_height="30dp"
+            android:text="GRADO DI AMMORTAMENTO"
+            android:textColor="#FF0000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/fondo_ammortamento_ind_grado_di_ammortamento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Fondo ammortamento"
+            android:inputType="numberDecimal|numberSigned"
+            android:minHeight="48dp" />
+
+
+        <EditText
+            android:id="@+id/immobilizzazioni_materiali_ind_grado_di_ammortamento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Immobilizzazioni Materiali"
+            android:inputType="numberDecimal|numberSigned"
+            android:minHeight="48dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="67dp"
+            android:layout_gravity="center"
+            android:text="INDICI DI REDDITIVITÀ"
+            android:textColor="#007AFF"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="53dp"
+            android:text="ROI"
+            android:textColor="#FF0000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/roa_ind_roi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Reddito gestione operativo"
+            android:inputType="numberDecimal|numberSigned"
+            android:minHeight="48dp" />
+
+        <EditText
+            android:id="@+id/attivo_totale_netto_ind_roi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Attivo totale netto"
+            android:inputType="numberDecimal|numberSigned"
+            android:minHeight="48dp" />
+
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="53dp"
+            android:text="ROS"
+            android:textColor="#FF0000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/roa_ind_ros"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Reddito gestione operativo"
+            android:inputType="numberDecimal|numberSigned"
+            android:minHeight="48dp" />
+
+        <EditText
+            android:id="@+id/ricavi_netti_vendita_ind_ros"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ricavi netti di vendita"
+            android:inputType="numberDecimal|numberSigned"
+            android:minHeight="48dp" />
+
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="53dp"
+            android:text="ROE"
+            android:textColor="#FF0000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/reddito_netto_utile_vendita_ind_roe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Reddito netto utile"
+            android:inputType="numberDecimal|numberSigned"
+            android:minHeight="48dp" />
+
+        <EditText
+            android:id="@+id/patrimonio_netto_ind_roe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Patrimonio netto"
+            android:inputType="numberDecimal|numberSigned"
+            android:minHeight="48dp" />
+
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="53dp"
+            android:text="TURNOVER"
+            android:textColor="#FF0000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/ricavi_netti_vendita_ind_turnover"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ricavi netti di vendita"
+            android:inputType="numberDecimal|numberSigned"
+            android:minHeight="48dp" />
+
+        <EditText
+            android:id="@+id/attivo_totale_netto_ind_turnover"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Attivo totale netto"
+            android:inputType="numberDecimal|numberSigned"
+            android:minHeight="48dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="67dp"
+            android:layout_gravity="center"
+            android:text="INDICI DI LIQUIDITÀ"
+            android:textColor="#007AFF"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="53dp"
+            android:text="INDICE DI LIQUIDITÀ PRIMARIA"
+            android:textColor="#FF0000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/cassa_ind_liquidità_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Denaro e valori in cassa"
+            android:inputType="numberDecimal|numberSigned"
+            android:minHeight="48dp" />
+
+        <EditText
+            android:id="@+id/banca_ind_liquidità_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Depositi bancari e postali"
+            android:inputType="numberDecimal|numberSigned"
+            android:minHeight="48dp" />
+
+        <EditText
+            android:id="@+id/crediti_ind_liquidità_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Crediti verso clienti"
+            android:inputType="numberDecimal|numberSigned"
+            android:minHeight="48dp" />
+
+        <EditText
+            android:id="@+id/passività_ind_liquidità_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Passività a breve termine"
+            android:inputType="numberDecimal|numberSigned"
+            android:minHeight="48dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="53dp"
+            android:text="INDICE DI LIQUIDITÀ SECONDARIA"
+            android:textColor="#FF0000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/attività_ind_liquidità_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Attività a breve termine"
+            android:inputType="numberDecimal|numberSigned"
+            android:minHeight="48dp" />
+
+        <EditText
+            android:id="@+id/passività_ind_liquidità_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Passività a breve termine"
+            android:inputType="numberDecimal|numberSigned"
+            android:minHeight="48dp" />
+
+        <Button
+            android:id="@+id/salvaindici"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:baselineAligned="false"
+            android:text="SALVA INDICI DI BILANCIO" />
+
+        <!-- Chiusura del LinearLayout -->
+    </LinearLayout>
+
+</ScrollView>
