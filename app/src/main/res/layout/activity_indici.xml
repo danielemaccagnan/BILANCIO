@@ -95,6 +95,15 @@
             android:inputType="numberDecimal|numberSigned"
             android:minHeight="48dp" />
 
+
+        <EditText
+            android:id="@+id/patrimonio_netto_ind_strutturale"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Patrimonio netto"
+            android:inputType="numberDecimal|numberSigned"
+            android:minHeight="48dp" />
+
         <TextView
             android:layout_width="250dp"
             android:layout_height="wrap_content"
@@ -115,7 +124,7 @@
             android:id="@+id/patrimonio_netto_ind_esigibilità"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Patrimonio netto"
+            android:hint="Capitale di terzi"
             android:inputType="numberDecimal|numberSigned"
             android:minHeight="48dp" />
 
@@ -186,10 +195,10 @@
             android:minHeight="48dp" />
 
         <EditText
-            android:id="@+id/attivo_totale_netto_ind_grado_di_copertura_1"
+            android:id="@+id/attivo_fisso_netto_ind_grado_di_copertura_1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Attivo totale netto"
+            android:hint="Attivo fisso netto"
             android:inputType="numberDecimal|numberSigned"
             android:minHeight="48dp" />
 
@@ -219,10 +228,10 @@
 
 
         <EditText
-            android:id="@+id/attivo_totale_netto_ind_grado_di_copertura_2"
+            android:id="@+id/attivo_fisso_netto_ind_grado_di_copertura_2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Attivo totale netto"
+            android:hint="Attivo fisso netto"
             android:inputType="numberDecimal|numberSigned"
             android:minHeight="48dp" />
 
@@ -438,7 +447,6 @@
             android:baselineAligned="false"
             android:text="SALVA INDICI DI BILANCIO" />
 
-        <!-- Chiusura del LinearLayout -->
     </LinearLayout>
 
 </ScrollView>
