@@ -33,9 +33,9 @@
 
     <Button
         android:id="@+id/menu_main"
-        android:layout_width="46dp"
-        android:layout_height="43dp"
-        android:background="@drawable/impostazioni"
+        android:layout_width="53dp"
+        android:layout_height="53dp"
+        android:background="@drawable/ic_settings"
         android:text=""
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

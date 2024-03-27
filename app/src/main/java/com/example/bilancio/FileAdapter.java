@@ -38,11 +38,11 @@ public class FileAdapter extends RecyclerView.Adapter<FileAdapter.FileViewHolder
         return new FileViewHolder(itemView);
     }
 
+
     @Override
     public void onBindViewHolder(@NonNull FileViewHolder holder, int position) {
         File currentFile = mFiles.get(position);
         holder.textViewFileName.setText(currentFile.getName());
-        // L'icona di Excel è già impostata nel layout XML, quindi non serve fare altro qui per visualizzarla
 
         holder.itemView.setOnClickListener(v -> {
             if (isSelectionMode) {
@@ -62,8 +62,8 @@ public class FileAdapter extends RecyclerView.Adapter<FileAdapter.FileViewHolder
             return true;
         });
 
-        holder.itemView.setBackgroundColor(selectedItems.contains(position) ? context.getResources().getColor(android.R.color.holo_blue_light) : context.getResources().getColor(android.R.color.transparent));
     }
+
 
     private void openFile(File file) {
         Uri uri = FileProvider.getUriForFile(context, context.getApplicationContext().getPackageName() + ".provider", file);
@@ -124,12 +124,15 @@ public class FileAdapter extends RecyclerView.Adapter<FileAdapter.FileViewHolder
 
     static class FileViewHolder extends RecyclerView.ViewHolder {
         TextView textViewFileName;
-        ImageView imageViewExcelIcon; // Aggiunto riferimento all'ImageView
+        ImageView imageViewExcelIcon; // Riferimento esistente all'ImageView
 
         public FileViewHolder(View itemView) {
             super(itemView);
             textViewFileName = itemView.findViewById(R.id.textViewFileName);
-            imageViewExcelIcon = itemView.findViewById(R.id.imageViewExcelIcon); // Collegamento all'ImageView nell'XML
+            imageViewExcelIcon = itemView.findViewById(R.id.imageViewExcelIcon);
+
         }
     }
+
+
 }
