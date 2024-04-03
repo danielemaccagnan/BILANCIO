@@ -1,5 +1,4 @@
 package com.example.bilancio;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -7,12 +6,10 @@ import android.os.Environment;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.io.File;
 import java.util.ArrayList;
 
@@ -87,7 +84,6 @@ public class filesalvati extends AppCompatActivity {
         shareIntent.putParcelableArrayListExtra(Intent.EXTRA_STREAM, uris);
         shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         startActivity(Intent.createChooser(shareIntent, "Condividi File"));
-
 
     }
 

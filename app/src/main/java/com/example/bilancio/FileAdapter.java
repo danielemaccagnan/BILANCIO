@@ -1,15 +1,16 @@
 package com.example.bilancio;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
+import androidx.core.content.FileProvider;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -39,13 +40,17 @@ public class FileAdapter extends RecyclerView.Adapter<FileAdapter.FileViewHolder
 
         holder.itemView.setBackgroundColor(selectedItems.contains(position) ? context.getResources().getColor(android.R.color.holo_blue_light) : context.getResources().getColor(android.R.color.transparent));
 
-        holder.itemView.setOnClickListener(v -> {
+        holder.itemView.setOnClickListener(v -> openFile(currentFile));
+
+        holder.itemView.setOnLongClickListener(v -> {
             if (selectedItems.contains(position)) {
                 selectedItems.remove(position);
+                v.setBackgroundColor(context.getResources().getColor(android.R.color.transparent));
             } else {
                 selectedItems.add(position);
+                v.setBackgroundColor(context.getResources().getColor(android.R.color.holo_blue_light));
             }
-            notifyItemChanged(position);
+            return true; // Evento gestito
         });
     }
 
@@ -81,6 +86,18 @@ public class FileAdapter extends RecyclerView.Adapter<FileAdapter.FileViewHolder
         mFiles.removeAll(toRemove);
         selectedItems.clear();
         notifyDataSetChanged();
+    }
+
+    private void openFile(File file) {
+        Uri uri = FileProvider.getUriForFile(context, context.getApplicationContext().getPackageName() + ".provider", file);
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setDataAndType(uri, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        if (intent.resolveActivity(context.getPackageManager()) != null) {
+            context.startActivity(intent);
+        } else {
+            Toast.makeText(context, "Nessuna app trovata per aprire questo file", Toast.LENGTH_LONG).show();
+        }
     }
 
     static class FileViewHolder extends RecyclerView.ViewHolder {
