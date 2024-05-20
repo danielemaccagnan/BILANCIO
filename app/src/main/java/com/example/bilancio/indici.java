@@ -131,15 +131,7 @@ public class indici extends AppCompatActivity {
                 RegionUtil.setBorderBottom(BorderStyle.THIN, new CellRangeAddress(1, 1, 0, 0), sheet);
                 RegionUtil.setBorderTop(BorderStyle.THIN, new CellRangeAddress(3, 3, 0, 0), sheet);
 
-                // Bordo medio destro
-                RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(4, 5, 3, 3), sheet);
-                RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(8, 9, 3, 3), sheet);
-                RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(12, 13, 3, 3), sheet);
-                RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(16, 17, 3, 3), sheet);
-                RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(20, 21, 3, 3), sheet);
-                RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(24, 25, 3, 3), sheet);
-                RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(28, 29, 3, 3), sheet);
-                RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(32, 33, 3, 3), sheet);
+
 
                 //Bordo medio alto
                 RegionUtil.setBorderTop(BorderStyle.MEDIUM, new CellRangeAddress(7, 7, 0, 3), sheet);
@@ -204,6 +196,10 @@ public class indici extends AppCompatActivity {
                 cellA5.setCellStyle(style);
                 cellA5.setCellValue("INDEBITAMENTO GLOBALE");
 
+                XSSFRow rowD5 = sheet.getRow(4);
+                XSSFCell cellD5 = rowD5.createCell(3);
+
+
                 XSSFRow rowC5 = sheet.getRow(4);
                 XSSFCell cellC5 = rowC5.createCell(2);
                 cellC5.setCellValue("CAPITALE DI TERZI");
@@ -211,6 +207,9 @@ public class indici extends AppCompatActivity {
                 XSSFRow rowC6 = sheet.getRow(5);
                 XSSFCell cellC6 = rowC6.createCell(2);
                 cellC6.setCellValue("PATRIMONIO NETTO");
+
+                XSSFRow rowD6 = sheet.getRow(5);
+                XSSFCell cellD6 = rowD6.createCell(3);
 
                 XSSFRow rowA7 = sheet.getRow(6);
                 XSSFCell cellA7 = rowA7.createCell(0);
@@ -222,7 +221,9 @@ public class indici extends AppCompatActivity {
                 if(capitale_di_terzi_ind_globale.getText().toString().length()!=0 && patrimonio_netto_ind_globale.getText().toString().length()!=0){
                     double capitalediterziindglobale=Double.parseDouble(capitale_di_terzi_ind_globale.getText().toString());
                     double patrimonionettoindglobale= Double.parseDouble(patrimonio_netto_ind_globale.getText().toString());
-                    cellD7.setCellValue(capitalediterziindglobale/patrimonionettoindglobale);
+                    cellD5.setCellValue(capitalediterziindglobale);
+                    cellD6.setCellValue(patrimonionettoindglobale);
+                    cellD7.setCellFormula("D5/D6");
                     RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(6, 6, 3, 3), sheet);
                 } else {
                     RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(6, 6, 3, 3), sheet);
@@ -232,6 +233,9 @@ public class indici extends AppCompatActivity {
                 XSSFCell cellA9 = rowA9.createCell(0);
                 cellA9.setCellValue("INDEBITAMENTO STRUTTURALE");
 
+                XSSFRow rowD9 = sheet.getRow(8);
+                XSSFCell cellD9 = rowD9.createCell(3);
+
                 XSSFRow rowC9 = sheet.getRow(8);
                 XSSFCell cellC9 = rowC9.createCell(2);
                 cellA9.setCellStyle(style);
@@ -240,6 +244,9 @@ public class indici extends AppCompatActivity {
                 XSSFRow rowC10 = sheet.getRow(9);
                 XSSFCell cellC10 = rowC10.createCell(2);
                 cellC10.setCellValue("PATRIMONIO NETTO");
+
+                XSSFRow rowD10 = sheet.getRow(9);
+                XSSFCell cellD10 = rowD10.createCell(3);
 
                 XSSFRow rowA11 = sheet.getRow(10);
                 XSSFCell cellA11 = rowA11.createCell(0);
@@ -254,7 +261,9 @@ public class indici extends AppCompatActivity {
                     double quotamutuipassivistrutturale= Double.parseDouble(quotamutuipassivi_ind_strutturale.getText().toString());
                     double mutuipassiviindstrutturale = Double.parseDouble(mutuipassivi_ind_strutturale.getText().toString());
                     double patrimonionettoindstrutturale = Double.parseDouble(patrimonio_netto_ind_strutturale.getText().toString());
-                    cellD11.setCellValue((bancaccpassivostrutturale + quotamutuipassivistrutturale + mutuipassiviindstrutturale) /patrimonionettoindstrutturale);
+                    cellD9.setCellValue(bancaccpassivostrutturale + quotamutuipassivistrutturale + mutuipassiviindstrutturale);
+                    cellD10.setCellValue(patrimonionettoindstrutturale);
+                    cellD11.setCellFormula("D9/D10");
                     RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(10, 10, 3, 3), sheet);
                 } else {
                     RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(10, 10, 3, 3), sheet);
@@ -265,6 +274,9 @@ public class indici extends AppCompatActivity {
                 cellA13.setCellStyle(style);
                 cellA13.setCellValue("ESIGIBILITÀ DEL PASSIVO");
 
+                XSSFRow rowD13 = sheet.getRow(12);
+                XSSFCell cellD13 = rowD13.createCell(3);
+
                 XSSFRow rowC13 = sheet.getRow(12);
                 XSSFCell cellC13 = rowC13.createCell(2);
                 cellC13.setCellValue("PASSIVITÀ A BREVE TERMINE");
@@ -272,6 +284,9 @@ public class indici extends AppCompatActivity {
                 XSSFRow rowC14 = sheet.getRow(13);
                 XSSFCell cellC14 = rowC14.createCell(2);
                 cellC14.setCellValue("CAPITALE DI TERZI");
+
+                XSSFRow rowD14 = sheet.getRow(13);
+                XSSFCell cellD14 = rowD14.createCell(3);
 
                 XSSFRow rowA15 = sheet.getRow(14);
                 XSSFCell cellA15 = rowA15.createCell(0);
@@ -283,7 +298,9 @@ public class indici extends AppCompatActivity {
                 if(pas_brevetermine_ind_esigibilità.getText().toString().length()!=0 && patrimonio_netto_ind_esigibilità.getText().toString().length()!=0){
                     double passivitaabreveindpassivo=Double.parseDouble(pas_brevetermine_ind_esigibilità.getText().toString());
                     double patrimonionettoindpassivo= Double.parseDouble(patrimonio_netto_ind_esigibilità.getText().toString());
-                    cellD15.setCellValue(passivitaabreveindpassivo/patrimonionettoindpassivo);
+                    cellD13.setCellValue(passivitaabreveindpassivo);
+                    cellD14.setCellValue(patrimonionettoindpassivo);
+                    cellD15.setCellFormula("D13/D14");
                     RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(14, 14, 3, 3), sheet);
                 } else {
                     RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(14, 14, 3, 3), sheet);
@@ -294,6 +311,9 @@ public class indici extends AppCompatActivity {
                 cellA17.setCellStyle(style);
                 cellA17.setCellValue("GRADO DI RIGIDITÀ DELL'ATTIVO");
 
+                XSSFRow rowD17 = sheet.getRow(16);
+                XSSFCell cellD17 = rowD17.createCell(3);
+
                 XSSFRow rowC17 = sheet.getRow(16);
                 XSSFCell cellC17 = rowC17.createCell(2);
                 cellC17.setCellValue("ATTIVO FISSO NETTO");
@@ -301,6 +321,9 @@ public class indici extends AppCompatActivity {
                 XSSFRow rowC18 = sheet.getRow(17);
                 XSSFCell cellC18 = rowC18.createCell(2);
                 cellC18.setCellValue("ATTIVO TOTALE NETTO");
+
+                XSSFRow rowD18 = sheet.getRow(17);
+                XSSFCell cellD18 = rowD18.createCell(3);
 
                 XSSFRow rowA19 = sheet.getRow(18);
                 XSSFCell cellA19 = rowA19.createCell(0);
@@ -312,7 +335,9 @@ public class indici extends AppCompatActivity {
                 if(attivo_fisso_netto_ind_rigidità_attivo.getText().toString().length()!=0 && attivo_totale_netto_ind_rigidità_attivo.getText().toString().length()!=0){
                     double attivofissonettorigidità=Double.parseDouble(attivo_fisso_netto_ind_rigidità_attivo.getText().toString());
                     double attivototalenettorigidità= Double.parseDouble(attivo_totale_netto_ind_rigidità_attivo.getText().toString());
-                    cellD19.setCellValue(attivofissonettorigidità/attivototalenettorigidità);
+                    cellD17.setCellValue(attivofissonettorigidità);
+                    cellD18.setCellValue(attivototalenettorigidità);
+                    cellD19.setCellFormula("D17/D18");
                     RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(18, 18, 3, 3), sheet);
                 } else {
                     RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(18, 18, 3, 3), sheet);
@@ -323,6 +348,9 @@ public class indici extends AppCompatActivity {
                 cellA21.setCellStyle(style);
                 cellA21.setCellValue("GRADO DI ELASTICITÀ DELL'ATTIVO");
 
+                XSSFRow rowD21 = sheet.getRow(20);
+                XSSFCell cellD21 = rowD21.createCell(3);
+
                 XSSFRow rowC21 = sheet.getRow(20);
                 XSSFCell cellC21 = rowC21.createCell(2);
                 cellC21.setCellValue("ATTIVO A BREVE");
@@ -330,6 +358,9 @@ public class indici extends AppCompatActivity {
                 XSSFRow rowC22 = sheet.getRow(21);
                 XSSFCell cellC22 = rowC22.createCell(2);
                 cellC22.setCellValue("ATTIVO TOTALE NETTO");
+
+                XSSFRow rowD22 = sheet.getRow(21);
+                XSSFCell cellD22 = rowD22.createCell(3);
 
                 XSSFRow rowA23 = sheet.getRow(22);
                 XSSFCell cellA23 = rowA23.createCell(0);
@@ -341,7 +372,9 @@ public class indici extends AppCompatActivity {
                 if(attivo_a_breve_ind_elasticità_attivo.getText().toString().length()!=0 && attivo_totale_netto_ind_elasticità_attivo.getText().toString().length()!=0){
                     double attivoabreveelasticità=Double.parseDouble(attivo_a_breve_ind_elasticità_attivo.getText().toString());
                     double attivototalenettoelasticità= Double.parseDouble(attivo_totale_netto_ind_elasticità_attivo.getText().toString());
-                    cellD23.setCellValue(attivoabreveelasticità/attivototalenettoelasticità);
+                    cellD21.setCellValue(attivoabreveelasticità);
+                    cellD22.setCellValue(attivototalenettoelasticità);
+                    cellD23.setCellFormula("D21/D22");
                     RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(22, 22, 3, 3), sheet);
                 } else {
                     RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(22, 22, 3, 3), sheet);
@@ -352,6 +385,9 @@ public class indici extends AppCompatActivity {
                 cellA25.setCellStyle(style);
                 cellA25.setCellValue("GRADO DI COPERTURA DELL'ATTIVO (I) LIVELLO");
 
+                XSSFRow rowD25 = sheet.getRow(24);
+                XSSFCell cellD25 = rowD25.createCell(3);
+
                 XSSFRow rowC25 = sheet.getRow(24);
                 XSSFCell cellC25 = rowC25.createCell(2);
                 cellC25.setCellValue("PATRIMONIO NETTO");
@@ -359,6 +395,9 @@ public class indici extends AppCompatActivity {
                 XSSFRow rowC26 = sheet.getRow(25);
                 XSSFCell cellC26 = rowC26.createCell(2);
                 cellC26.setCellValue("ATTIVO FISSO NETTO");
+
+                XSSFRow rowD26 = sheet.getRow(25);
+                XSSFCell cellD26 = rowD26.createCell(3);
 
                 XSSFRow rowA27 = sheet.getRow(26);
                 XSSFCell cellA27 = rowA27.createCell(0);
@@ -370,7 +409,9 @@ public class indici extends AppCompatActivity {
                 if(patrimonio_netto_ind_grado_di_copertura_1.getText().toString().length()!=0 && attivo_fisso_netto_ind_grado_di_copertura_1.getText().toString().length()!=0){
                     double patrimonionettocopertura=Double.parseDouble(patrimonio_netto_ind_grado_di_copertura_1.getText().toString());
                     double attivofissonettocopertura= Double.parseDouble(attivo_fisso_netto_ind_grado_di_copertura_1.getText().toString());
-                    cellD27.setCellValue(patrimonionettocopertura/attivofissonettocopertura);
+                    cellD25.setCellValue(patrimonionettocopertura);
+                    cellD26.setCellValue(attivofissonettocopertura);
+                    cellD27.setCellFormula("D25/D26");
                     RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(26, 26, 3, 3), sheet);
                 } else {
                     RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(26, 26, 3, 3), sheet);
@@ -381,6 +422,9 @@ public class indici extends AppCompatActivity {
                 cellA29.setCellStyle(style);
                 cellA29.setCellValue("GRADO DI COPERTURA DELL'ATTIVO (II) LIVELLO");
 
+                XSSFRow rowD29 = sheet.getRow(28);
+                XSSFCell cellD29 = rowD29.createCell(3);
+
                 XSSFRow rowC29 = sheet.getRow(28);
                 XSSFCell cellC29 = rowC29.createCell(2);
                 cellC29.setCellValue("PATRIMONIO NETTO + \n" + "PASSIVO A MEDIO/LUNGO\n" + "TERMINE");
@@ -388,6 +432,9 @@ public class indici extends AppCompatActivity {
                 XSSFRow rowC30 = sheet.getRow(29);
                 XSSFCell cellC30 = rowC30.createCell(2);
                 cellC30.setCellValue("ATTIVO FISSO NETTO");
+
+                XSSFRow rowD30 = sheet.getRow(29);
+                XSSFCell cellD30 = rowD30.createCell(3);
 
                 XSSFRow rowA31 = sheet.getRow(30);
                 XSSFCell cellA31 = rowA31.createCell(0);
@@ -400,7 +447,9 @@ public class indici extends AppCompatActivity {
                     double patrimonionettocopertura2=Double.parseDouble(patrimonio_netto_ind_grado_di_copertura_2.getText().toString());
                     double passivomediolungotermine = Double.parseDouble(passivo_medio_lungo_termine_ind_grado_di_copertura_2.getText().toString());
                     double attivofissonettocopertura2= Double.parseDouble(attivo_fisso_netto_ind_grado_di_copertura_2.getText().toString());
-                    cellD31.setCellValue((patrimonionettocopertura2 + passivomediolungotermine)/attivofissonettocopertura2);
+                    cellD29.setCellValue(patrimonionettocopertura2 + passivomediolungotermine);
+                    cellD30.setCellValue(attivofissonettocopertura2);
+                    cellD31.setCellFormula("D29/D30");
                     RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(30, 30, 3, 3), sheet);
                 } else {
                     RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(30, 30, 3, 3), sheet);
@@ -411,6 +460,9 @@ public class indici extends AppCompatActivity {
                 cellA33.setCellStyle(style);
                 cellA33.setCellValue("GRADO DI AMMORTAMENTO");
 
+                XSSFRow rowD33 = sheet.getRow(32);
+                XSSFCell cellD33 = rowD33.createCell(3);
+
                 XSSFRow rowC33 = sheet.getRow(32);
                 XSSFCell cellC33 = rowC33.createCell(2);
                 cellC33.setCellValue("FONDO AMMORTAMENTO");
@@ -418,6 +470,9 @@ public class indici extends AppCompatActivity {
                 XSSFRow rowC34 = sheet.getRow(33);
                 XSSFCell cellC34 = rowC34.createCell(2);
                 cellC34.setCellValue("IMMOBILIZZAZIONI MATERIALI");
+
+                XSSFRow rowD34 = sheet.getRow(33);
+                XSSFCell cellD34 = rowD34.createCell(3);
 
                 XSSFRow rowA35 = sheet.getRow(34);
                 XSSFCell cellA35 = rowA35.createCell(0);
@@ -429,11 +484,23 @@ public class indici extends AppCompatActivity {
                 if(fondo_ammortamento_ind_grado_di_ammortamento.getText().toString().length()!=0 && immobilizzazioni_materiali_ind_grado_di_ammortamento.getText().toString().length()!=0){
                     double fondoammortamentogrado=Double.parseDouble(fondo_ammortamento_ind_grado_di_ammortamento.getText().toString());
                     double immobilizzazionimateriali= Double.parseDouble(immobilizzazioni_materiali_ind_grado_di_ammortamento.getText().toString());
-                    cellD35.setCellValue(fondoammortamentogrado/immobilizzazionimateriali);
+                    cellD33.setCellValue(fondoammortamentogrado);
+                    cellD34.setCellValue(immobilizzazionimateriali);
+                    cellD35.setCellFormula("D33/D34");
                     RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(34, 34, 3, 3), sheet);
                 } else {
                     RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(34, 34, 3, 3), sheet);
                 }
+
+                // Bordo medio destro dopo aver aggiunto i valori
+                RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(4, 5, 3, 3), sheet);
+                RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(8, 9, 3, 3), sheet);
+                RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(12, 13, 3, 3), sheet);
+                RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(16, 17, 3, 3), sheet);
+                RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(20, 21, 3, 3), sheet);
+                RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(24, 25, 3, 3), sheet);
+                RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(28, 29, 3, 3), sheet);
+                RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(32, 33, 3, 3), sheet);
 
                 /*
 
@@ -479,11 +546,6 @@ public class indici extends AppCompatActivity {
                 RegionUtil.setBorderBottom(BorderStyle.THIN, new CellRangeAddress(1, 1, 0, 0), sheet2);
                 RegionUtil.setBorderTop(BorderStyle.THIN, new CellRangeAddress(3, 3, 0, 0), sheet2);
 
-                // Bordo medio destro
-                RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(4, 5, 3, 3), sheet2);
-                RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(8, 9, 3, 3), sheet2);
-                RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(12, 13, 3, 3), sheet2);
-                RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(16, 17, 3, 3), sheet2);
 
                 //Bordo medio alto
                 RegionUtil.setBorderTop(BorderStyle.MEDIUM, new CellRangeAddress(7, 7, 0, 3), sheet2);
@@ -517,6 +579,9 @@ public class indici extends AppCompatActivity {
                 cellAA5.setCellStyle(style);
                 cellAA5.setCellValue("ROI");
 
+                XSSFRow rowDD5 = sheet2.getRow(4);
+                XSSFCell cellDD5 = rowDD5.createCell(3);
+
                 XSSFRow rowCC5 = sheet2.getRow(4);
                 XSSFCell cellCC5 = rowCC5.createCell(2);
                 cellCC5.setCellValue("REDDITO GESTIONE OPERATIVO");
@@ -524,6 +589,9 @@ public class indici extends AppCompatActivity {
                 XSSFRow rowCC6 = sheet2.getRow(5);
                 XSSFCell cellCC6 = rowCC6.createCell(2);
                 cellCC6.setCellValue("ATTIVO TOTALE NETTO");
+
+                XSSFRow rowDD6 = sheet2.getRow(5);
+                XSSFCell cellDD6 = rowDD6.createCell(3);
 
                 XSSFRow rowAA7 = sheet2.getRow(6);
                 XSSFCell cellAA7 = rowAA7.createCell(0);
@@ -535,7 +603,9 @@ public class indici extends AppCompatActivity {
                 if(roa_ind_roi.getText().toString().length()!=0 && attivo_totale_netto_ind_roi.getText().toString().length()!=0){
                     double redditogestioneoperativoroi=Double.parseDouble(roa_ind_roi.getText().toString());
                     double attivototalenettoroi= Double.parseDouble(attivo_totale_netto_ind_roi.getText().toString());
-                    cellDD7.setCellValue(redditogestioneoperativoroi /attivototalenettoroi);
+                    cellDD5.setCellValue(redditogestioneoperativoroi);
+                    cellDD6.setCellValue(attivototalenettoroi);
+                    cellDD7.setCellFormula("D5/D6");
                     RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(6, 6, 3, 3), sheet2);
                 } else {
                     RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(6, 6, 3, 3), sheet2);
@@ -546,6 +616,9 @@ public class indici extends AppCompatActivity {
                 cellAA9.setCellStyle(style);
                 cellAA9.setCellValue("ROS");
 
+                XSSFRow rowDD9 = sheet2.getRow(8);
+                XSSFCell cellDD9 = rowDD9.createCell(3);
+
                 XSSFRow rowCC9 = sheet2.getRow(8);
                 XSSFCell cellCC9 = rowCC9.createCell(2);
                 cellCC9.setCellValue("REDDITO GESTIONE OPERATIVO");
@@ -553,6 +626,9 @@ public class indici extends AppCompatActivity {
                 XSSFRow rowCC10 = sheet2.getRow(9);
                 XSSFCell cellCC10 = rowCC10.createCell(2);
                 cellCC10.setCellValue("RICAVI NETTI DI VENDITA");
+
+                XSSFRow rowDD10 = sheet2.getRow(9);
+                XSSFCell cellDD10 = rowDD10.createCell(3);
 
                 XSSFRow rowAA11 = sheet2.getRow(10);
                 XSSFCell cellAA11 = rowAA11.createCell(0);
@@ -564,7 +640,9 @@ public class indici extends AppCompatActivity {
                 if(roa_ind_ros.getText().toString().length()!=0 && ricavi_netti_vendita_ind_ros.getText().toString().length()!=0){
                     double redditogestioneoperativoros=Double.parseDouble(roa_ind_ros.getText().toString());
                     double ricavinettivenditaros= Double.parseDouble(ricavi_netti_vendita_ind_ros.getText().toString());
-                    cellDD11.setCellValue(redditogestioneoperativoros /ricavinettivenditaros);
+                    cellDD9.setCellValue(redditogestioneoperativoros);
+                    cellDD10.setCellValue(ricavinettivenditaros);
+                    cellDD11.setCellFormula("D9/D10");
                     RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(10, 10, 3, 3), sheet2);
                 } else {
                     RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(10, 10, 3, 3), sheet2);
@@ -575,6 +653,9 @@ public class indici extends AppCompatActivity {
                 cellAA13.setCellStyle(style);
                 cellAA13.setCellValue("ROE");
 
+                XSSFRow rowDD13 = sheet2.getRow(12);
+                XSSFCell cellDD13 = rowDD13.createCell(3);
+
                 XSSFRow rowCC13 = sheet2.getRow(12);
                 XSSFCell cellCC13 = rowCC13.createCell(2);
                 cellCC13.setCellValue("REDDITO NETTO UTILE");
@@ -582,6 +663,9 @@ public class indici extends AppCompatActivity {
                 XSSFRow rowCC14 = sheet2.getRow(13);
                 XSSFCell cellCC14 = rowCC14.createCell(2);
                 cellCC14.setCellValue("PATRIMONIO NETTO");
+
+                XSSFRow rowDD14 = sheet2.getRow(13);
+                XSSFCell cellDD14 = rowDD14.createCell(3);
 
                 XSSFRow rowAA15 = sheet2.getRow(14);
                 XSSFCell cellAA15 = rowAA15.createCell(0);
@@ -593,7 +677,9 @@ public class indici extends AppCompatActivity {
                 if(reddito_netto_utile_vendita_ind_roe.getText().toString().length()!=0 && patrimonio_netto_ind_roe.getText().toString().length()!=0){
                     double redditonettoutileroe=Double.parseDouble(reddito_netto_utile_vendita_ind_roe.getText().toString());
                     double patrimonionettoroe= Double.parseDouble(patrimonio_netto_ind_roe.getText().toString());
-                    cellDD15.setCellValue(redditonettoutileroe /patrimonionettoroe);
+                    cellDD13.setCellValue(redditonettoutileroe);
+                    cellDD14.setCellValue(patrimonionettoroe);
+                    cellDD15.setCellFormula("D13/D14");
                     RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(14, 14, 3, 3), sheet2);
                 } else {
                     RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(14, 14, 3, 3), sheet2);
@@ -604,6 +690,9 @@ public class indici extends AppCompatActivity {
                 cellAA17.setCellStyle(style);
                 cellAA17.setCellValue("TURNOVER");
 
+                XSSFRow rowDD17 = sheet2.getRow(16);
+                XSSFCell cellDD17 = rowDD17.createCell(3);
+
                 XSSFRow rowCC17 = sheet2.getRow(16);
                 XSSFCell cellCC17 = rowCC17.createCell(2);
                 cellCC17.setCellValue("RICAVI NETTI DI VENDITA");
@@ -611,6 +700,9 @@ public class indici extends AppCompatActivity {
                 XSSFRow rowCC18 = sheet2.getRow(17);
                 XSSFCell cellCC18 = rowCC18.createCell(2);
                 cellCC18.setCellValue("ATTIVO TOTALE NETTO");
+
+                XSSFRow rowDD18 = sheet2.getRow(17);
+                XSSFCell cellDD18 = rowDD18.createCell(3);
 
                 XSSFRow rowAA19 = sheet2.getRow(18);
                 XSSFCell cellAA19 = rowAA19.createCell(0);
@@ -622,11 +714,19 @@ public class indici extends AppCompatActivity {
                 if(ricavi_netti_vendita_ind_turnover.getText().toString().length()!=0 && attivo_totale_netto_ind_turnover.getText().toString().length()!=0){
                     double ricavinettivenditaturnover=Double.parseDouble(ricavi_netti_vendita_ind_turnover.getText().toString());
                     double attivototalenettoturnover= Double.parseDouble(attivo_totale_netto_ind_turnover.getText().toString());
-                    cellDD19.setCellValue(ricavinettivenditaturnover /attivototalenettoturnover);
+                    cellDD17.setCellValue(ricavinettivenditaturnover);
+                    cellDD18.setCellValue(attivototalenettoturnover);
+                    cellDD19.setCellFormula("D17/D18");
                     RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(18, 18, 3, 3), sheet2);
                 } else {
                     RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(18, 18, 3, 3), sheet2);
                 }
+
+                // Bordo medio destro dopo aver inserito i valori
+                RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(4, 5, 3, 3), sheet2);
+                RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(8, 9, 3, 3), sheet2);
+                RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(12, 13, 3, 3), sheet2);
+                RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(16, 17, 3, 3), sheet2);
 
                 /*
 
@@ -665,9 +765,6 @@ public class indici extends AppCompatActivity {
                 RegionUtil.setBorderBottom(BorderStyle.THIN, new CellRangeAddress(1, 1, 0, 0), sheet3);
                 RegionUtil.setBorderTop(BorderStyle.THIN, new CellRangeAddress(3, 3, 0, 0), sheet3);
 
-                // Bordo medio destro
-                RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(4, 5, 3, 3), sheet3);
-                RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(8, 9, 3, 3), sheet3);
 
                 //Bordo medio alto
                 RegionUtil.setBorderTop(BorderStyle.MEDIUM, new CellRangeAddress(7, 7, 0, 3), sheet3);
@@ -699,6 +796,9 @@ public class indici extends AppCompatActivity {
                 cellAAA5.setCellValue("INDICE DI LIQUIDITÀ PRIMARIA");
                 cellAAA5.setCellStyle(style);
 
+                XSSFRow rowDDD5 = sheet3.getRow(4);
+                XSSFCell cellDDD5 = rowDDD5.createCell(3);
+
                 XSSFRow rowCCC5 = sheet3.getRow(4);
                 XSSFCell cellCCC5 = rowCCC5.createCell(2);
                 cellCCC5.setCellValue("CASSA + BANCA + CREDITI\n" + "VERSO CLIENTI");
@@ -706,6 +806,9 @@ public class indici extends AppCompatActivity {
                 XSSFRow rowCCC6 = sheet3.getRow(5);
                 XSSFCell cellCCC6 = rowCCC6.createCell(2);
                 cellCCC6.setCellValue("PASSIVITÀ A BREVE TERMINE");
+
+                XSSFRow rowDDD6 = sheet3.getRow(5);
+                XSSFCell cellDDD6 = rowDDD6.createCell(3);
 
                 XSSFRow rowAAA7 = sheet3.getRow(6);
                 XSSFCell cellAAA7 = rowAAA7.createCell(0);
@@ -719,8 +822,9 @@ public class indici extends AppCompatActivity {
                     double bancaliquidità= Double.parseDouble(banca_ind_liquidità_1.getText().toString());
                     double creditiliquidità= Double.parseDouble(crediti_ind_liquidità_1.getText().toString());
                     double passivitàabreveliquidità= Double.parseDouble(passività_ind_liquidità_1.getText().toString());
-
-                    cellDDD7.setCellValue((cassaliquidità + bancaliquidità + creditiliquidità)/passivitàabreveliquidità);
+                    cellDDD5.setCellValue(cassaliquidità + bancaliquidità + creditiliquidità);
+                    cellDDD6.setCellValue(passivitàabreveliquidità);
+                    cellDDD7.setCellFormula("D5/D6");
                     RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(6, 6, 3, 3), sheet3);
                 } else {
                     RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(6, 6, 3, 3), sheet3);
@@ -731,6 +835,9 @@ public class indici extends AppCompatActivity {
                 cellAAA9.setCellValue("INDICE DI LIQUIDITÀ SECONDARIA");
                 cellAAA9.setCellStyle(style);
 
+                XSSFRow rowDDD9 = sheet3.getRow(8);
+                XSSFCell cellDDD9 = rowDDD9.createCell(3);
+
                 XSSFRow rowCCC9 = sheet3.getRow(8);
                 XSSFCell cellCCC9 = rowCCC9.createCell(2);
                 cellCCC9.setCellValue("ATTIVO A BREVE");
@@ -738,6 +845,9 @@ public class indici extends AppCompatActivity {
                 XSSFRow rowCCC10 = sheet3.getRow(9);
                 XSSFCell cellCCC10 = rowCCC10.createCell(2);
                 cellCCC10.setCellValue("PASSIVITÀ A BREVE TERMINE");
+
+                XSSFRow rowDDD10 = sheet3.getRow(9);
+                XSSFCell cellDDD10 = rowDDD10.createCell(3);
 
                 XSSFRow rowAAA11 = sheet3.getRow(10);
                 XSSFCell cellAAA11 = rowAAA11.createCell(0);
@@ -749,12 +859,17 @@ public class indici extends AppCompatActivity {
                 if(attività_ind_liquidità_2.getText().toString().length()!=0 && passività_ind_liquidità_2.getText().toString().length()!=0){
                     double attivoabreveliquidità=Double.parseDouble(attività_ind_liquidità_2.getText().toString());
                     double passivitàabreveliquidità2= Double.parseDouble(passività_ind_liquidità_2.getText().toString());
-                    cellDDD11.setCellValue(attivoabreveliquidità/passivitàabreveliquidità2);
+                    cellDDD9.setCellValue(attivoabreveliquidità);
+                    cellDDD10.setCellValue(passivitàabreveliquidità2);
+                    cellDDD11.setCellFormula("D9/D10");
                     RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(10, 10, 3, 3), sheet3);
                 } else {
                     RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(10, 10, 3, 3), sheet3);
                 }
 
+                // Bordo medio destro dopo aver inserito i valori
+                RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(4, 5, 3, 3), sheet3);
+                RegionUtil.setBorderRight(BorderStyle.MEDIUM, new CellRangeAddress(8, 9, 3, 3), sheet3);
 
                 // Esegui il salvataggio del file
                 fileSaver.execute(workbook);

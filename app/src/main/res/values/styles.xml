@@ -24,4 +24,14 @@
         <!-- Altre personalizzazioni specifiche del tema scuro -->
     </style>
 
+        <style name="TextWithOutline">
+            <item name="android:shadowColor">#000000</item>
+            <item name="android:shadowDx">1</item>
+            <item name="android:shadowDy">1</item>
+            <item name="android:shadowRadius">1</item>
+            <item name="android:textColor">@android:color/white</item>
+        </style>
+
+
+
 </resources>

@@ -46,14 +46,16 @@ public class statopatrimoniale extends AppCompatActivity {
     immobilizzazioni1, immobilizzazioni2, immobilizzazioni3, immobilizzazioni4,immobilizzazioni5,immobilizzazioni6,immobilizzazioni7,
     immobilizzazionimateriali1,immobilizzazionimateriali2,immobilizzazionimateriali3, immobilizzazionimaterialifa, immobilizzazionimateriali4,immobilizzazionimateriali5,
     immobilizzazionifinanziarie1, immobilizzazionifinanziarie2, immobilizzazionifinanziarie3,immobilizzazionifinanziarie4,
-    rimanenze1, rimanenze2, rimanenze3, rimanenze4, rimanenze5,
+    rimanenze1, rimanenze2, rimanenze3, rimanenze4, rimanenze5, cambialiattive,
     crediti1punto1, crediti1punto2,crediti2,crediti3,crediti4,crediti5,crediti5punto2, crediti5punto3, crediti5punto4,
     immobilizzazionifinanziarienonimmobilizzate1, immobilizzazionifinanziarienonimmobilizzate2, immobilizzazionifinanziarienonimmobilizzate3, immobilizzazionifinanziarienonimmobilizzate3punto2, immobilizzazionifinanziarienonimmobilizzate4, immobilizzazionifinanziarienonimmobilizzate5, immobilizzazionifinanziarienonimmobilizzate6, immobilizzazionifinanziarienonimmobilizzate7,
     disponibilitàliquide1, disponibilitàliquide2, disponibilitàliquide3,
     rateieriscontiattivi1,
+    fatturedaemettere,
+    mutuipassivi, mutuiattivi, fornitoriacconti, clientiacconti, azionistisott, erariociv, fornitoriimmobilizzazioniimmaterialicacconti, getFornitoriimmobilizzazionimaterialicacconti, imballaggidurevoli, crediticommdiversi, clienticostianticipati, cambialiallosconto, cambialiallincasso, cambialiinsolute, fondorischisucrediti, fondosvalutazionecrediti, creditiperimposte, creditiversoistitutiprevidenziali, creditipercauzioni, creditidiversi, bancaccattivi, bancaccpostali, fondoresponsabilitàcivile, fondomanutenzioniprogrammate, debitipertfr, bancacriba, bancaccpassivi, bancacanticipasufattura, devitivaltrifinanziatori, debiticommercialidiversi, debitidaliquidare, clienticacconti, cambialipassive, debitiperritenutedaversare, debitiperiva, debitiperimposte, erariociva, debitipercauzioni, personalecretribuzione, personalecliquidazione, debitivfpensione, cedenteccessione, debitidiversi,
     patrimonionetto1, patrimonionetto2, patrimonionetto3, patrimonionetto4, patrimonionetto5, patrimonionetto6, patrimonionetto7, patrimonionetto8, patrimonionetto9, patrimonionetto10,
     fondiperrischieoneri1, fondiperrischieoneri2, fondiperrischieoneri3, fondiperrischieoneri4,
-    tfr1,
+    tfr1, fatturedaricevere,
     debiti1, debiti2, debiti3, debiti4, debiti4punto1, debiti4punto2, debiti5, debiti5punto1, debiti5punto2, debiti6, debiti7, debiti8, debiti9, debiti10, debiti11, debiti11punto2, debiti12, debiti13, debiti14,
     rateieriscontipassivi1;
 
@@ -394,9 +396,11 @@ public class statopatrimoniale extends AppCompatActivity {
                cellF5.setCellFormula("SUM(F6:F16)");
                cellF5.setCellStyle(grassetto);
                 creditiversosoci1=findViewById(R.id.creditiversosoci_1);
-                if(creditiversosoci1.getText().toString().length()!=0){
-                    double crevssoci1 = Double.parseDouble(creditiversosoci1.getText().toString());
-                    cellC5.setCellValue(crevssoci1);
+                azionistisott = findViewById(R.id.azionisticsott);
+                if(creditiversosoci1.getText().toString().length()!=0||azionistisott.getText().toString().length()!=0){
+                    double crevssoci1 = creditiversosoci1.getText().toString().trim().isEmpty()?0: Double.parseDouble(creditiversosoci1.getText().toString());
+                    double azionistisotto = azionistisott.getText().toString().trim().isEmpty()?0: Double.parseDouble(azionistisott.getText().toString());
+                    cellC5.setCellValue(crevssoci1 + azionistisotto);
                 }
 
 
@@ -589,10 +593,11 @@ public class statopatrimoniale extends AppCompatActivity {
                 }
 
                 immobilizzazioni6=findViewById(R.id.immobilizzazioni_6);
-
-                if(immobilizzazioni6.getText().toString().length()!=0){
-                    double imm6 = Double.parseDouble(immobilizzazioni6.getText().toString());
-                    C14.setCellValue(imm6);
+                fornitoriimmobilizzazioniimmaterialicacconti = findViewById(R.id.fornitori_imm_imm_cacconti);
+                if(immobilizzazioni6.getText().toString().length()!=0||fornitoriimmobilizzazioniimmaterialicacconti.getText().toString().length()!=0){
+                    double imm6 =immobilizzazioni6.getText().toString().trim().isEmpty()?0: Double.parseDouble(immobilizzazioni6.getText().toString());
+                    double fornitoriimmcacconti = fornitoriimmobilizzazioniimmaterialicacconti.getText().toString().trim().isEmpty()?0: Double.parseDouble(fornitoriimmobilizzazioniimmaterialicacconti.getText().toString());
+                    C14.setCellValue(imm6 + fornitoriimmcacconti);
                 }
                 B14.setCellValue("6) Immobilizzazioni in corso e acconti");
                 E14.setCellValue("IX. Utile (perdita) d'esercizio");
@@ -731,9 +736,11 @@ public class statopatrimoniale extends AppCompatActivity {
                 XSSFCell F21 = row21.createCell(5);
 
                 immobilizzazionimateriali4=findViewById(R.id.immobilizzazionimateriali_4);
-                if(immobilizzazionimateriali4.getText().toString().length()!=0){
-                    double immM4 = Double.parseDouble(immobilizzazionimateriali4.getText().toString());
-                    C21.setCellValue(immM4);
+                imballaggidurevoli = findViewById(R.id.imballaggidurevoli);
+                if(immobilizzazionimateriali4.getText().toString().length()!=0||imballaggidurevoli.getText().toString().length()!=0){
+                    double immM4 =immobilizzazionimateriali4.getText().toString().trim().isEmpty()?0: Double.parseDouble(immobilizzazionimateriali4.getText().toString());
+                    double imballaggi = imballaggidurevoli.getText().toString().trim().isEmpty()?0: Double.parseDouble(imballaggidurevoli.getText().toString());
+                    C21.setCellValue(immM4 + imballaggi);
                 }
                 B21.setCellValue("4)Altri beni");
                 E21.setCellValue("3) strumenti finanziari derivati passivi");
@@ -758,9 +765,11 @@ public class statopatrimoniale extends AppCompatActivity {
 
 
                 immobilizzazionimateriali5=findViewById(R.id.immobilizzazionimateriali_5);
-                if(immobilizzazionimateriali5.getText().toString().length()!=0){
-                    double immM5 = Double.parseDouble(immobilizzazionimateriali5.getText().toString());
-                    C22.setCellValue(immM5);
+                fornitoriimmobilizzazioniimmaterialicacconti = findViewById(R.id.fornitori_imm_mat_cacconti);
+                if(immobilizzazionimateriali5.getText().toString().length()!=0||fornitoriimmobilizzazioniimmaterialicacconti.getText().toString().length()!=0){
+                    double immM5 =immobilizzazionimateriali5.getText().toString().trim().isEmpty()?0: Double.parseDouble(immobilizzazionimateriali5.getText().toString());
+                    double immobilizzazionimat = fornitoriimmobilizzazioniimmaterialicacconti.getText().toString().trim().isEmpty()? 0: Double.parseDouble(fornitoriimmobilizzazioniimmaterialicacconti.getText().toString());
+                    C22.setCellValue(immM5 + immobilizzazionimat);
                 }
 
                 fondiperrischieoneri4=findViewById(R.id.fondiperrischieoneri_4);
@@ -817,10 +826,12 @@ public class statopatrimoniale extends AppCompatActivity {
                 E25.setCellStyle(grassetto);
                 F25.setCellStyle(grassetto);
 
+                mutuiattivi = findViewById(R.id.mutui_attivi);
                 immobilizzazionifinanziarie2=findViewById(R.id.immobilizzazionifinanziarie_2);
-                if(immobilizzazionifinanziarie2.getText().toString().length()!=0){
-                    double immf2 = Double.parseDouble(immobilizzazionifinanziarie2.getText().toString());
-                    C25.setCellValue(immf2);
+                if(immobilizzazionifinanziarie2.getText().toString().length()!=0 || mutuiattivi.getText().toString().length()!=0){
+                    double immf2 = immobilizzazionifinanziarie2.getText().toString().trim().isEmpty() ? 0 : Double.parseDouble(immobilizzazionifinanziarie2.getText().toString());
+                    double mutuiattivii = mutuiattivi.getText().toString().trim().isEmpty()? 0 : Double.parseDouble(mutuiattivi.getText().toString());
+                    C25.setCellValue(immf2 + mutuiattivii);
                 }
 
 
@@ -988,9 +999,18 @@ public class statopatrimoniale extends AppCompatActivity {
                 }
 
                 debiti4punto1=findViewById(R.id.debiti_4_1);
-                if(debiti4punto1.getText().toString().length()!=0){
-                    double debt4punto1=Double.parseDouble(debiti4punto1.getText().toString());
-                    F33.setCellValue(debt4punto1);
+                mutuipassivi = findViewById(R.id.mutui_passivi);
+                String mutuipassiviText = mutuipassivi.getText().toString().trim();
+                String debiti4punto1text = debiti4punto1.getText().toString().trim();
+                if(!mutuipassiviText.isEmpty()||!debiti4punto1text.isEmpty()){
+                    try{
+                        double mutuipassivii = mutuipassiviText.isEmpty()? 0 : Double.parseDouble(mutuipassiviText);
+                        double debt4punto1= debiti4punto1text.isEmpty()? 0: Double.parseDouble(debiti4punto1text);
+                        F33.setCellValue(debt4punto1 + mutuipassivii);
+                    } catch (Exception e){
+
+                    }
+
                 }
                 // 34 RIGA
                 XSSFRow row34 = sheet.createRow(33);
@@ -1004,9 +1024,11 @@ public class statopatrimoniale extends AppCompatActivity {
                 E34.setCellValue("      - oltre l'anno");
 
                 rimanenze5=findViewById(R.id.rimanenze_5);
-                if(rimanenze5.getText().toString().length()!=0){
-                    double rim5=Double.parseDouble(rimanenze5.getText().toString());
-                    C34.setCellValue(rim5);
+                fornitoriacconti = findViewById(R.id.fornitori_cacconti);
+                if(rimanenze5.getText().toString().length()!=0||fornitoriacconti.toString().length()!=0){
+                    double rim5=rimanenze5.getText().toString().trim().isEmpty()? 0: Double.parseDouble(rimanenze5.getText().toString());
+                    double fornitoricacc = fornitoriacconti.getText().toString().trim().isEmpty()? 0 : Double.parseDouble(fornitoriacconti.getText().toString());
+                    C34.setCellValue(rim5 + fornitoricacc);
                 }
 
                 debiti4punto2=findViewById(R.id.debiti_4_2);
@@ -1040,14 +1062,44 @@ public class statopatrimoniale extends AppCompatActivity {
                 XSSFCell E36 = row36.createCell(4);
                 XSSFCell F36 = row36.createCell(5);
                 B36.setCellValue("1) Verso clienti");
-                C36.setCellFormula("C37+C38");
+                fatturedaemettere = findViewById(R.id.fatturedaemettere);
+                crediticommdiversi = findViewById(R.id.crediticommdiversi);
+                debiti5punto1=findViewById(R.id.debiti_5_1);
+
+                crediti1punto1=findViewById(R.id.crediti_1_1);
+                crediti1punto2=findViewById(R.id.crediti_1_2);
+
+                clienticostianticipati = findViewById(R.id.clienticcostianticipati);
+                cambialiattive = findViewById(R.id.crediti_cambiali_attive);
+                cambialiallosconto = findViewById(R.id.cambialiallosconto);
+                cambialiallincasso = findViewById(R.id.cambialiallincasso);
+                cambialiinsolute = findViewById(R.id.cambialiinsolute);
+                fondorischisucrediti = findViewById(R.id.fondorischisucrediti);
+                fondosvalutazionecrediti = findViewById(R.id.fondosvalutazionicrediti);
+                if(crediti1punto2.getText().toString().length()!=0||crediti1punto1.getText().toString().length()!=0||crediticommdiversi.getText().toString().length()!=0||fatturedaemettere.getText().toString().length()!=0||clienticostianticipati.getText().toString().length()!=0||cambialiattive.getText().toString().length()!=0||cambialiallosconto.getText().toString().length()!=0||cambialiallincasso.getText().toString().length()!=0||cambialiinsolute.getText().toString().length()!=0||fondorischisucrediti.getText().toString().length()!=0||fondosvalutazionecrediti.getText().toString().length()!=0){
+                    double cr1punto2= crediti1punto2.getText().toString().trim().isEmpty()? 0 : Double.parseDouble(crediti1punto2.getText().toString());
+                    double cr1punto1= crediti1punto1.getText().toString().trim().isEmpty()?0: Double.parseDouble(crediti1punto1.getText().toString());
+                    double fatturedaemetter = fatturedaemettere.getText().toString().trim().isEmpty()? 0 : Double.parseDouble(fatturedaemettere.getText().toString());
+                    double crediticomdiv = crediticommdiversi.getText().toString().trim().isEmpty()? 0 : Double.parseDouble(crediticommdiversi.getText().toString());
+                    double clienticosti = clienticostianticipati.getText().toString().trim().isEmpty()? 0: Double.parseDouble(clienticostianticipati.getText().toString());
+                    double cambialiattiv = cambialiattive.getText().toString().trim().isEmpty()?0: Double.parseDouble(cambialiattive.getText().toString());
+                    double cambialialloscont = cambialiallosconto.getText().toString().trim().isEmpty()?0: Double.parseDouble(cambialiallosconto.getText().toString());
+                    double cambialiallincass = cambialiallincasso.getText().toString().trim().isEmpty()?0: Double.parseDouble(cambialiallincasso.getText().toString());
+                    double cambialiinsolut = cambialiinsolute.getText().toString().trim().isEmpty()?0: Double.parseDouble(cambialiinsolute.getText().toString());
+                    double fondorischisucredit = fondorischisucrediti.getText().toString().trim().isEmpty()?0: Double.parseDouble(fondorischisucrediti.getText().toString());
+                    double fondosvalutazionecredit = fondosvalutazionecrediti.getText().toString().trim().isEmpty()?0: Double.parseDouble(fondosvalutazionecrediti.getText().toString());
+                    C36.setCellValue(cr1punto2 + cr1punto1 + fatturedaemetter + crediticomdiv + clienticosti + cambialiattiv + cambialialloscont + cambialiallincass + cambialiinsolut + fondorischisucredit + fondosvalutazionecredit);
+                }
+
                 E36.setCellValue("- entro l'anno");
 
-                debiti5punto1=findViewById(R.id.debiti_5_1);
-                if(debiti5punto1.getText().toString().length()!=0){
-                    double debt5punto1=Double.parseDouble(debiti5punto1.getText().toString());
+                if(debiti5punto1.getText().toString().length()!=0 ){
+                    double debt5punto1=debiti5punto1.getText().toString().trim().isEmpty()? 0 : Double.parseDouble(debiti5punto1.getText().toString());
                     F36.setCellValue(debt5punto1);
                 }
+
+
+
                 // 37 RIGA
                 XSSFRow row37 = sheet.createRow(36);
                 XSSFCell A37 = row37.createCell(0);
@@ -1059,9 +1111,9 @@ public class statopatrimoniale extends AppCompatActivity {
                 B37.setCellValue("- entro l'anno");
                 E37.setCellValue("- oltre l'anno");
 
-                crediti1punto1=findViewById(R.id.crediti_1_1);
+
                 if(crediti1punto1.getText().toString().length()!=0){
-                    double cr1punto1=Double.parseDouble(crediti1punto1.getText().toString());
+                    double cr1punto1= crediti1punto1.getText().toString().trim().isEmpty()?0: Double.parseDouble(crediti1punto1.getText().toString());
                     C37.setCellValue(cr1punto1);
                 }
 
@@ -1081,18 +1133,19 @@ public class statopatrimoniale extends AppCompatActivity {
                 XSSFCell F38 = row38.createCell(5);
                 B38.setCellValue("- oltre l'anno");
                 E38.setCellValue("6) Acconti");
+                
+                clienticacconti = findViewById(R.id.clienti_cacconti);
 
-
-                crediti1punto2=findViewById(R.id.crediti_1_2);
                 if(crediti1punto2.getText().toString().length()!=0){
-                    double cr1punto2=Double.parseDouble(crediti1punto2.getText().toString());
+                    double cr1punto2= crediti1punto2.getText().toString().trim().isEmpty()? 0 : Double.parseDouble(crediti1punto2.getText().toString());
                     C38.setCellValue(cr1punto2);
                 }
 
                 debiti6=findViewById(R.id.debiti_6);
-                if(debiti6.getText().toString().length()!=0){
-                    double debt6=Double.parseDouble(debiti6.getText().toString());
-                    F38.setCellValue(debt6);
+                if(debiti6.getText().toString().length()!=0||clienticacconti.getText().toString().length()!=0){
+                    double debt6= debiti6.getText().toString().trim().isEmpty()?0: Double.parseDouble(debiti6.getText().toString());
+                    double clienticacconti = clientiacconti.getText().toString().trim().isEmpty()? 0 : Double.parseDouble(clientiacconti.getText().toString());
+                    F38.setCellValue(debt6+ clienticacconti);
                 }
 
                 // 39 RIGA
@@ -1104,17 +1157,32 @@ public class statopatrimoniale extends AppCompatActivity {
                 XSSFCell E39 = row39.createCell(4);
                 XSSFCell F39 = row39.createCell(5);
 
-                crediti2=findViewById(R.id.crediti_2);
-                if(crediti2.getText().toString().length()!=0){
-                    double cr2=Double.parseDouble(crediti2.getText().toString());
-                    C39.setCellValue(cr2);
+
+                crediti2 = findViewById(R.id.crediti_2);
+                String crediti2Text = crediti2.getText().toString().trim();
+                if ( !crediti2Text.isEmpty()) {
+                    try {
+
+                        double cr2 = crediti2Text.isEmpty() ? 0 : Double.parseDouble(crediti2Text);
+                        C39.setCellValue(cr2);
+                    } catch (Exception e){
+
+                    }
                 }
 
-
+                fatturedaricevere = findViewById(R.id.debiti_fatture_da_ricevere);
                 debiti7=findViewById(R.id.debiti_7);
-                if(debiti7.getText().toString().length()!=0){
-                    double debt7=Double.parseDouble(debiti7.getText().toString());
-                    F39.setCellValue(debt7);
+                String fatturedaricevereText = fatturedaricevere.getText().toString().trim();
+                String debiti7Text = debiti7.getText().toString().trim();
+                if(!fatturedaricevereText.isEmpty()||!debiti7Text.isEmpty()){
+                    try{
+                        double debt7= debiti7Text.isEmpty()? 0 : Double.parseDouble(debiti7.getText().toString());
+                        double fatturedariceveree = fatturedaricevereText.isEmpty()? 0 : Double.parseDouble(fatturedaricevereText);
+                        F39.setCellValue(debt7 + fatturedariceveree);
+                    } catch(Exception e){
+
+                    }
+
                 }
                 B39.setCellValue("2) Verso imprese controllate");
                 E39.setCellValue("7) Debiti verso fornitori");
@@ -1251,9 +1319,11 @@ public class statopatrimoniale extends AppCompatActivity {
                 }
 
                 debiti12=findViewById(R.id.debiti_12);
-                if(debiti12.getText().toString().length()!=0){
-                    double debt12=Double.parseDouble(debiti12.getText().toString());
-                    F45.setCellValue(debt12);
+                erariociv = findViewById(R.id.erario_civa);
+                if(debiti12.getText().toString().length()!=0||erariociv.getText().toString().length()!=0){
+                    double debt12=debiti12.getText().toString().trim().isEmpty()?0: Double.parseDouble(debiti12.getText().toString());
+                    double erariociva = erariociv.getText().toString().trim().isEmpty()?0: Double.parseDouble(erariociv.getText().toString());
+                    F45.setCellValue(debt12 + erariociva);
                 }
                 B45.setCellValue("5quater)verso altri");
                 E45.setCellValue("12) Debiti tributari");
@@ -1804,5 +1874,4 @@ public class statopatrimoniale extends AppCompatActivity {
 
         });
     }
-
 }

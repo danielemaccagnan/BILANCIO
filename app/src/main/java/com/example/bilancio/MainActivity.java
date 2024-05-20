@@ -3,7 +3,7 @@ package com.example.bilancio;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
@@ -16,11 +16,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Impostazioni dei pulsanti
-        Button statopatrimoniale = findViewById(R.id.button_statopatrimoniale);
-        Button contoeconomico = findViewById(R.id.button_conto_economico);
-        Button cambiaindici = findViewById(R.id.button_indici);
-        Button file_salvati = findViewById(R.id.button_filesalvati);
-        Button menu = findViewById(R.id.menu_main);
+        TextView statopatrimoniale = findViewById(R.id.button_statopatrimoniale);
+        TextView contoeconomico = findViewById(R.id.button_conto_economico);
+        TextView cambiaindici = findViewById(R.id.button_indici);
+        TextView file_salvati = findViewById(R.id.button_filesalvati);
+        TextView menu = findViewById(R.id.menu_main);
 
         // Imposta il tema di default se non è già stato fatto
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);

@@ -54,6 +54,13 @@
             android:inputType="numberDecimal|numberSigned"
             android:minHeight="48dp" />
 
+        <EditText
+            android:id="@+id/azionisticsott"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Azionisti c/sottoscrizioni"
+            android:inputType="numberDecimal|numberSigned" />
+
         <TextView
             android:layout_width="308dp"
             android:layout_height="56dp"
@@ -103,7 +110,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Altre"
-            android:inputType="numberDecimal|numberSigned"/>
+            android:inputType="numberDecimal|numberSigned" />
+
         <EditText
             android:id="@+id/immobilizzazioni_5"
             android:layout_width="match_parent"
@@ -117,6 +125,13 @@
             android:layout_height="wrap_content"
             android:hint="Immobilizzazioni in corso e acconti"
             android:inputType="numberDecimal|numberSigned" />
+        <EditText
+            android:id="@+id/fornitori_imm_imm_cacconti"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Fornitori immobilizzazioni immateriali c/acconti"
+            android:inputType="numberDecimal|numberSigned" />
+
         <TextView
             android:layout_width="171dp"
             android:layout_height="56dp"
@@ -156,12 +171,25 @@
             android:hint="Altri beni"
             android:inputType="numberDecimal|numberSigned"
             android:minHeight="48dp" />
+        <EditText
+            android:id="@+id/imballaggidurevoli"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Imballaggi durevoli"
+            android:inputType="numberDecimal|numberSigned"/>
 
         <EditText
             android:id="@+id/immobilizzazionimateriali_5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Immobilizzazioni in corso e acconti"
+            android:inputType="numberDecimal|numberSigned"/>
+
+        <EditText
+            android:id="@+id/fornitori_imm_mat_cacconti"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Fornitori immobilizzazioni materiali c/acconti"
             android:inputType="numberDecimal|numberSigned"/>
         <TextView
             android:layout_width="171dp"
@@ -183,6 +211,13 @@
             android:layout_height="wrap_content"
             android:hint="Crediti"
             android:inputType="numberDecimal|numberSigned"/>
+        <EditText
+            android:id="@+id/mutui_attivi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Mutui attivi"
+            android:inputType="numberDecimal|numberSigned"/>
+
         <EditText
             android:id="@+id/immobilizzazionifinanziarie_3"
             android:layout_width="match_parent"
@@ -241,6 +276,12 @@
             android:layout_height="wrap_content"
             android:hint="Acconti"
             android:inputType="numberDecimal|numberSigned"/>
+        <EditText
+            android:id="@+id/fornitori_cacconti"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Fornitori c/acconti"
+            android:inputType="numberDecimal|numberSigned"/>
         <TextView
             android:layout_width="171dp"
             android:layout_height="56dp"
@@ -257,7 +298,6 @@
             android:textColor="#c0c0c0"
             android:textSize="18sp"
             android:textStyle="bold"
-
             />
 
         <EditText
@@ -273,11 +313,70 @@
             android:hint="oltre l'anno"
             android:inputType="numberDecimal|numberSigned"/>
         <EditText
+            android:id="@+id/fatturedaemettere"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Fatture da emettere"
+            android:inputType="numberDecimal|numberSigned"/>
+        <EditText
+            android:id="@+id/crediticommdiversi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Crediti commerciali diversi"
+            android:inputType="numberDecimal|numberSigned"/>
+
+        <EditText
+            android:id="@+id/clienticcostianticipati"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Clienti c/costi anticipati"
+            android:inputType="numberDecimal|numberSigned"/>
+
+        <EditText
             android:id="@+id/crediti_2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Verso imprese controllate"
             android:inputType="numberDecimal|numberSigned"/>
+
+        <EditText
+            android:id="@+id/crediti_cambiali_attive"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Cambiali attive"
+            android:inputType="numberDecimal|numberSigned"/>
+        <EditText
+            android:id="@+id/cambialiallosconto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Cambiali allo sconto"
+            android:inputType="numberDecimal|numberSigned"/>
+        <EditText
+            android:id="@+id/cambialiallincasso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Cambiali all'incasso"
+            android:inputType="numberDecimal|numberSigned"/>
+
+        <EditText
+            android:id="@+id/cambialiinsolute"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Cambiali insolute"
+            android:inputType="numberDecimal|numberSigned"/>
+        <EditText
+            android:id="@+id/fondorischisucrediti"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Fondo rischi su crediti"
+            android:inputType="numberDecimal|numberSigned"/>
+        <EditText
+            android:id="@+id/fondosvalutazionicrediti"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Fondo svalutazioni crediti"
+            android:inputType="numberDecimal|numberSigned"/>
+
         <EditText
             android:id="@+id/crediti_3"
             android:layout_width="match_parent"
@@ -593,6 +692,12 @@
             android:textColor="	#c0c0c0"
             android:textSize="18sp"
             android:textStyle="bold" />
+        <EditText
+            android:id="@+id/mutui_passivi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Mutui passivi"
+            android:inputType="numberDecimal|numberSigned"/>
 
         <EditText
             android:id="@+id/debiti_4_1"
@@ -634,10 +739,23 @@
             android:hint="Acconti"
             android:inputType="numberDecimal|numberSigned"/>
         <EditText
+            android:id="@+id/clienti_cacconti"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Clienti c/acconti"
+            android:inputType="numberDecimal|numberSigned"/>
+        <EditText
             android:id="@+id/debiti_7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Debiti verso fornitori"
+            android:inputType="numberDecimal|numberSigned"/>
+
+        <EditText
+            android:id="@+id/debiti_fatture_da_ricevere"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Fatture da ricevere"
             android:inputType="numberDecimal|numberSigned"/>
         <EditText
             android:id="@+id/debiti_8"
@@ -678,6 +796,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Debiti tributari"
+            android:inputType="numberDecimal|numberSigned"/>
+        <EditText
+            android:id="@+id/erario_civa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Erario c/iva"
             android:inputType="numberDecimal|numberSigned"/>
         <EditText
             android:id="@+id/debiti_13"
