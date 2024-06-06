@@ -12,20 +12,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Impostazioni dei pulsanti
         val statopatrimonialee = findViewById<TextView>(R.id.button_statopatrimoniale)
         val contoeconomicoo = findViewById<TextView>(R.id.button_conto_economico)
         val cambiaindici = findViewById<TextView>(R.id.button_indici)
         val file_salvati = findViewById<TextView>(R.id.button_filesalvati)
         val menu = findViewById<TextView>(R.id.menu_main)
 
-        // Imposta il tema di default se non è già stato fatto
         val prefs = PreferenceManager.getDefaultSharedPreferences(this)
         if (!prefs.contains("theme")) {
             prefs.edit().putString("theme", "system_default").apply()
         }
 
-        // Listener per i pulsanti che avviano le altre Activity
         menu.setOnClickListener { view: View? ->
             startActivity(
                 Intent(

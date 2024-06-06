@@ -38,7 +38,7 @@ class FileAdapter(private val context: Context, private val mFiles: ArrayList<Fi
                 selectedItems.add(position)
                 v.setBackgroundColor(context.resources.getColor(android.R.color.holo_blue_light))
             }
-            true // Evento gestito
+            true
         }
     }
 

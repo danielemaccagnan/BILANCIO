@@ -25,7 +25,6 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook
 class contoeconomico() : AppCompatActivity() {
     var context: Context = this
 
-    // Dichiarazione del metodo showPopupMenu()
     private fun showPopupMenu(v: View) {
         val popup = PopupMenu(this, v)
         popup.show()
@@ -71,34 +70,28 @@ class contoeconomico() : AppCompatActivity() {
     var r56: EditText? = null
     var r59: EditText? = null
     override fun onCreate(savedInstanceState: Bundle?) {
-        // inizializza l'istanza della classe ExcelFileSaver
+
         val fileSaver = ContoEconomicoSaver(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_contoeconomico)
 
 
-        // Trova il pulsante con id "popup_button" nella tua attività
         val popup = findViewById<Button>(R.id.popup_button_ce)
 
-// Aggiungi un listener di click al pulsante
         popup.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view: View) {
-                // Crea un nuovo oggetto PopupMenu e lo mostra
                 val popupMenu = PopupMenu(this@contoeconomico, view)
                 popupMenu.menuInflater.inflate(R.menu.popup_menu_ce, popupMenu.menu)
 
-                // Aggiungi un listener per gestire il click degli elementi del menu
                 popupMenu.setOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener { item ->
                     when (item.itemId) {
                         R.id.menu_item_conto_economico -> {
-                            // Avvia la nuova activity ContoEconomicoActivity quando l'utente seleziona l'opzione Conto Economico
                             val intent = Intent(this@contoeconomico, statopatrimoniale::class.java)
                             startActivity(intent)
                             true
                         }
 
                         R.id.menu_item_home -> {
-                            // Torna alla home
                             val intent1 = Intent(this@contoeconomico, MainActivity::class.java)
                             startActivity(intent1)
                             true
@@ -108,14 +101,12 @@ class contoeconomico() : AppCompatActivity() {
                     }
                 })
 
-                // Mostra il popup menu
                 popupMenu.show()
             }
         })
         if ((ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
                     != PackageManager.PERMISSION_GRANTED)
         ) {
-            // Se il permesso non è stato ancora concesso, richiedilo all'utente
             ActivityCompat.requestPermissions(
                 this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
                 REQUEST_CODE_WRITE_EXTERNAL_STORAGE
@@ -124,25 +115,20 @@ class contoeconomico() : AppCompatActivity() {
         val salvace = findViewById<Button>(R.id.salvace)
         salvace.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {
-                // crea una nuova istanza di ExcelFileSaver e esegui il salvataggio
                 val fileSaver = ContoEconomicoSaver(context)
                 val workbook = XSSFWorkbook()
                 val sheet = workbook.createSheet("Conto Economico")
 
-                // Creare stile di cella
                 val style: CellStyle = workbook.createCellStyle()
                 style.alignment = HorizontalAlignment.CENTER
-                // Crea un nuovo font e imposta la proprietà "bold" su true
                 val font: Font = workbook.createFont()
                 font.bold = true
 
-                // Crea un nuovo stile di cella e imposta il font creato sopra
                 val grassetto: CellStyle = workbook.createCellStyle()
                 grassetto.setFont(font)
                 val alcentro: CellStyle = workbook.createCellStyle()
                 alcentro.alignment = HorizontalAlignment.CENTER
                 alcentro.setFont(font)
-                // Creare un nuovo oggetto CellStyle e impostare l'allineamento orizzontale al centro
                 val stile: CellStyle = workbook.createCellStyle()
                 stile.alignment = HorizontalAlignment.CENTER
                 stile.setFont(font)

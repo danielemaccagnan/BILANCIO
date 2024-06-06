@@ -19,7 +19,6 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook
 class indici : AppCompatActivity() {
     var context: Context = this
 
-    // Dichiarazione degli EditText come membri della classe
     var capitale_di_terzi_ind_globale: EditText? = null
     var patrimonio_netto_ind_globale: EditText? = null
     var banca_ind_strutturale: EditText? = null
@@ -56,10 +55,9 @@ class indici : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-       
+
         setContentView(R.layout.activity_indici)
 
-        // Inizializzazione degli EditText
         capitale_di_terzi_ind_globale = findViewById(R.id.capitale_di_terzi_ind_globale)
         patrimonio_netto_ind_globale = findViewById(R.id.patrimonio_netto_ind_globale)
         banca_ind_strutturale = findViewById(R.id.banca_ind_strutturale)
@@ -108,17 +106,13 @@ class indici : AppCompatActivity() {
         salvaa.setOnClickListener { // Crea una nuova istanza di IndiciDiBilancioSaver
             val fileSaver = IndiciDiBilancioSaver(context)
 
-            // Crea un nuovo workbook e imposta i valori
             val workbook = XSSFWorkbook()
             val sheet = workbook.createSheet("INDICI DI SOLIDITÀ")
 
-            // Ciclo per creare le righe con i valori
             for (i in 0..34) {
                 val row = sheet.createRow(i)
-                // Creazione delle 5 colonne per ogni riga
                 for (j in 0..3) {
                     val cell = row.createCell(j)
-                    // Imposta i valori in base alle condizioni richieste
                     if (j == 0) {
                         cell.setCellValue("") // Colonna A
                     } else if (j == 1) {
@@ -131,19 +125,15 @@ class indici : AppCompatActivity() {
                 }
             }
 
-            // Ottieni l'oggetto CellStyle per le celle unite
             val mergedCellStyle = workbook.createCellStyle()
             mergedCellStyle.borderBottom = BorderStyle.THIN // Bordo inferiore
             mergedCellStyle.borderTop = BorderStyle.THIN // Bordo superiore
             mergedCellStyle.borderLeft = BorderStyle.THIN // Bordo sinistro
             mergedCellStyle.borderRight = BorderStyle.THIN // Bordo destro
 
-            // Stile orizzontale
             val horizontalstyle = workbook.createCellStyle()
-            // Imposta l'allineamento del testo al centro
             horizontalstyle.alignment = HorizontalAlignment.CENTER
 
-            // Bordo piccolo
             RegionUtil.setBorderBottom(BorderStyle.THIN, CellRangeAddress(0, 0, 0, 3), sheet)
             RegionUtil.setBorderTop(BorderStyle.THIN, CellRangeAddress(0, 0, 0, 3), sheet)
             RegionUtil.setBorderLeft(BorderStyle.THIN, CellRangeAddress(0, 0, 0, 3), sheet)
@@ -156,7 +146,6 @@ class indici : AppCompatActivity() {
             RegionUtil.setBorderTop(BorderStyle.THIN, CellRangeAddress(3, 3, 0, 0), sheet)
 
 
-            //Bordo medio alto
             RegionUtil.setBorderTop(BorderStyle.MEDIUM, CellRangeAddress(7, 7, 0, 3), sheet)
             RegionUtil.setBorderTop(BorderStyle.MEDIUM, CellRangeAddress(11, 11, 0, 3), sheet)
             RegionUtil.setBorderTop(BorderStyle.MEDIUM, CellRangeAddress(15, 15, 0, 3), sheet)
@@ -166,7 +155,6 @@ class indici : AppCompatActivity() {
             RegionUtil.setBorderTop(BorderStyle.MEDIUM, CellRangeAddress(31, 31, 0, 3), sheet)
             RegionUtil.setBorderTop(BorderStyle.MEDIUM, CellRangeAddress(35, 35, 0, 3), sheet)
 
-            //Bordo medio basso
             RegionUtil.setBorderBottom(BorderStyle.MEDIUM, CellRangeAddress(3, 3, 0, 3), sheet)
             RegionUtil.setBorderBottom(BorderStyle.MEDIUM, CellRangeAddress(7, 7, 0, 3), sheet)
             RegionUtil.setBorderBottom(BorderStyle.MEDIUM, CellRangeAddress(11, 11, 0, 3), sheet)
@@ -176,14 +164,12 @@ class indici : AppCompatActivity() {
             RegionUtil.setBorderBottom(BorderStyle.MEDIUM, CellRangeAddress(27, 27, 0, 3), sheet)
             RegionUtil.setBorderBottom(BorderStyle.MEDIUM, CellRangeAddress(31, 31, 0, 3), sheet)
 
-            // Imposta la larghezza delle colonne
             sheet.setColumnWidth(0, 5000)
             sheet.setColumnWidth(1, 5000)
             sheet.setColumnWidth(2, 5000)
             sheet.setColumnWidth(3, 5000)
 
 
-            // Unisci celle
             sheet.addMergedRegion(CellRangeAddress(0, 0, 0, 3))
             sheet.addMergedRegion(CellRangeAddress(2, 2, 0, 2))
             sheet.addMergedRegion(CellRangeAddress(4, 4, 0, 1))
@@ -195,14 +181,12 @@ class indici : AppCompatActivity() {
             sheet.addMergedRegion(CellRangeAddress(28, 28, 0, 1))
             sheet.addMergedRegion(CellRangeAddress(32, 32, 0, 1))
 
-            // Stile per il testo in grassetto e colore rosso
             val style = workbook.createCellStyle()
             val font: Font = workbook.createFont()
             font.bold = true
             font.color = IndexedColors.RED.getIndex()
             style.setFont(font)
 
-            // Popolamento celle
             val rowA1 = sheet.getRow(0)
             val cellA1 = rowA1.createCell(0)
             cellA1.setCellValue("INDICI DI BILANCIO - SOLIDITÀ")
@@ -519,20 +503,17 @@ class indici : AppCompatActivity() {
                      */
             val sheet2 = workbook.createSheet("INDICI DI REDDITIVITÀ")
 
-            // Ciclo per creare le righe con i valori
             for (i in 0..18) {
                 val row = sheet2.createRow(i)
                 for (j in 0..3) {
                     val cell = row.createCell(j)
                 }
             }
-            // Imposta la larghezza delle colonne
             sheet2.setColumnWidth(0, 5000)
             sheet2.setColumnWidth(1, 5000)
             sheet2.setColumnWidth(2, 5000)
             sheet2.setColumnWidth(3, 5000)
 
-            // Unisci celle
             sheet2.addMergedRegion(CellRangeAddress(0, 0, 0, 3))
             sheet2.addMergedRegion(CellRangeAddress(2, 2, 0, 2))
             sheet2.addMergedRegion(CellRangeAddress(4, 4, 0, 1))
@@ -540,7 +521,6 @@ class indici : AppCompatActivity() {
             sheet2.addMergedRegion(CellRangeAddress(12, 12, 0, 1))
             sheet2.addMergedRegion(CellRangeAddress(16, 16, 0, 1))
 
-            // Bordo piccolo
             RegionUtil.setBorderBottom(BorderStyle.THIN, CellRangeAddress(0, 0, 0, 3), sheet2)
             RegionUtil.setBorderTop(BorderStyle.THIN, CellRangeAddress(0, 0, 0, 3), sheet2)
             RegionUtil.setBorderLeft(BorderStyle.THIN, CellRangeAddress(0, 0, 0, 3), sheet2)
@@ -553,20 +533,17 @@ class indici : AppCompatActivity() {
             RegionUtil.setBorderTop(BorderStyle.THIN, CellRangeAddress(3, 3, 0, 0), sheet2)
 
 
-            //Bordo medio alto
             RegionUtil.setBorderTop(BorderStyle.MEDIUM, CellRangeAddress(7, 7, 0, 3), sheet2)
             RegionUtil.setBorderTop(BorderStyle.MEDIUM, CellRangeAddress(11, 11, 0, 3), sheet2)
             RegionUtil.setBorderTop(BorderStyle.MEDIUM, CellRangeAddress(15, 15, 0, 3), sheet2)
             RegionUtil.setBorderTop(BorderStyle.MEDIUM, CellRangeAddress(19, 19, 0, 3), sheet2)
 
-            //Bordo medio basso
             RegionUtil.setBorderBottom(BorderStyle.MEDIUM, CellRangeAddress(3, 3, 0, 3), sheet2)
             RegionUtil.setBorderBottom(BorderStyle.MEDIUM, CellRangeAddress(7, 7, 0, 3), sheet2)
             RegionUtil.setBorderBottom(BorderStyle.MEDIUM, CellRangeAddress(11, 11, 0, 3), sheet2)
             RegionUtil.setBorderBottom(BorderStyle.MEDIUM, CellRangeAddress(15, 15, 0, 3), sheet2)
 
 
-            // Popolamento celle
             val rowAA1 = sheet2.getRow(0)
             val cellAA1 = rowAA1.createCell(0)
             cellAA1.setCellValue("INDICI DI BILANCIO - REDDITIVITÀ")
@@ -733,7 +710,6 @@ class indici : AppCompatActivity() {
                 )
             }
 
-            // Bordo medio destro dopo aver inserito i valori
             RegionUtil.setBorderRight(BorderStyle.MEDIUM, CellRangeAddress(4, 5, 3, 3), sheet2)
             RegionUtil.setBorderRight(BorderStyle.MEDIUM, CellRangeAddress(8, 9, 3, 3), sheet2)
             RegionUtil.setBorderRight(BorderStyle.MEDIUM, CellRangeAddress(12, 13, 3, 3), sheet2)
@@ -747,8 +723,6 @@ class indici : AppCompatActivity() {
     
                      */
             val sheet3 = workbook.createSheet("INDICI DI LIQUIDITÀ")
-
-            // Ciclo per creare le righe con i valori
             for (i in 0..10) {
                 val row = sheet3.createRow(i)
                 for (j in 0..3) {
@@ -756,13 +730,11 @@ class indici : AppCompatActivity() {
                 }
             }
 
-            // Imposta la larghezza delle colonne
             sheet3.setColumnWidth(0, 5000)
             sheet3.setColumnWidth(1, 5000)
             sheet3.setColumnWidth(2, 5000)
             sheet3.setColumnWidth(3, 5000)
 
-            // Bordo piccolo
             RegionUtil.setBorderBottom(BorderStyle.THIN, CellRangeAddress(0, 0, 0, 3), sheet3)
             RegionUtil.setBorderTop(BorderStyle.THIN, CellRangeAddress(0, 0, 0, 3), sheet3)
             RegionUtil.setBorderLeft(BorderStyle.THIN, CellRangeAddress(0, 0, 0, 3), sheet3)
@@ -775,21 +747,17 @@ class indici : AppCompatActivity() {
             RegionUtil.setBorderTop(BorderStyle.THIN, CellRangeAddress(3, 3, 0, 0), sheet3)
 
 
-            //Bordo medio alto
             RegionUtil.setBorderTop(BorderStyle.MEDIUM, CellRangeAddress(7, 7, 0, 3), sheet3)
             RegionUtil.setBorderTop(BorderStyle.MEDIUM, CellRangeAddress(11, 11, 0, 3), sheet3)
 
-            //Bordo medio basso
             RegionUtil.setBorderBottom(BorderStyle.MEDIUM, CellRangeAddress(3, 3, 0, 3), sheet3)
             RegionUtil.setBorderBottom(BorderStyle.MEDIUM, CellRangeAddress(7, 7, 0, 3), sheet3)
 
-            // Unisci celle
             sheet3.addMergedRegion(CellRangeAddress(0, 0, 0, 3))
             sheet3.addMergedRegion(CellRangeAddress(2, 2, 0, 2))
             sheet3.addMergedRegion(CellRangeAddress(4, 4, 0, 1))
             sheet3.addMergedRegion(CellRangeAddress(8, 8, 0, 1))
 
-            // Popolamento celle
             val rowAAA1 = sheet3.getRow(0)
             val cellAAA1 = rowAAA1.createCell(0)
             cellAAA1.setCellValue("INDICI DI BILANCIO - LIQUIDITÀ")
@@ -882,11 +850,9 @@ class indici : AppCompatActivity() {
                 )
             }
 
-            // Bordo medio destro dopo aver inserito i valori
             RegionUtil.setBorderRight(BorderStyle.MEDIUM, CellRangeAddress(4, 5, 3, 3), sheet3)
             RegionUtil.setBorderRight(BorderStyle.MEDIUM, CellRangeAddress(8, 9, 3, 3), sheet3)
 
-            // Esegui il salvataggio del file
             fileSaver.execute(workbook)
         }
     }

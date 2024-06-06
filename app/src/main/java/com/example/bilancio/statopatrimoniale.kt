@@ -30,7 +30,6 @@ class statopatrimoniale() : AppCompatActivity() {
     var context: Context = this
     private val fileSaverTask: StatoPatrimonialeSaver? = null
 
-    // Dichiarazione del metodo showPopupMenu()
     private fun showPopupMenu(v: View) {
         val popup = PopupMenu(this, v)
         popup.show()
@@ -164,34 +163,30 @@ class statopatrimoniale() : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         val context: Context = this
 
-        // inizializza l'istanza della classe ExcelFileSaver
+
         val fileSaver = StatoPatrimonialeSaver(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_statopatrimoniale)
 
 
-        // Trova il pulsante con id "popup_button" nella tua attività
+
         val popup = findViewById<Button>(R.id.popup_button)
 
-// Aggiungi un listener di click al pulsante
+
         popup.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view: View) {
-                // Crea un nuovo oggetto PopupMenu e lo mostra
                 val popupMenu = PopupMenu(this@statopatrimoniale, view)
                 popupMenu.menuInflater.inflate(R.menu.popup_menu, popupMenu.menu)
 
-                // Aggiungi un listener per gestire il click degli elementi del menu
                 popupMenu.setOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener { item ->
                     when (item.itemId) {
                         R.id.menu_item_conto_economico -> {
-                            // Avvia la nuova activity ContoEconomicoActivity quando l'utente seleziona l'opzione Conto Economico
                             val intent = Intent(this@statopatrimoniale, contoeconomico::class.java)
                             startActivity(intent)
                             true
                         }
 
                         R.id.menu_item_home -> {
-                            // Torna alla home
                             val intent1 = Intent(this@statopatrimoniale, MainActivity::class.java)
                             startActivity(intent1)
                             true
@@ -201,14 +196,12 @@ class statopatrimoniale() : AppCompatActivity() {
                     }
                 })
 
-                // Mostra il popup menu
                 popupMenu.show()
             }
         })
         if ((ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
                     != PackageManager.PERMISSION_GRANTED)
         ) {
-            // Se il permesso non è stato ancora concesso, richiedilo all'utente
             ActivityCompat.requestPermissions(
                 this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
                 REQUEST_CODE_WRITE_EXTERNAL_STORAGE
@@ -216,16 +209,13 @@ class statopatrimoniale() : AppCompatActivity() {
         }
 
 
-// EditText con un solo "."
         val debiti11punto2 = findViewById<EditText>(R.id.debiti_11_2)
         debiti11punto2.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {}
             override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
-                // Controlla se viene inserito un secondo "."
                 if (charSequence.toString().contains(".") && charSequence.toString()
                         .lastIndexOf(".") != charSequence.toString().indexOf(".")
                 ) {
-                    // Rimuovi il secondo "."
                     debiti11punto2.setText(
                         charSequence.toString().substring(
                             0,
@@ -238,7 +228,6 @@ class statopatrimoniale() : AppCompatActivity() {
                 if (charSequence.toString().contains("-") && charSequence.toString()
                         .lastIndexOf("-") != charSequence.toString().indexOf("-")
                 ) {
-                    // Rimuovi il secondo "."
                     debiti11punto2.setText(
                         charSequence.toString().substring(
                             0,
@@ -252,16 +241,13 @@ class statopatrimoniale() : AppCompatActivity() {
 
             override fun afterTextChanged(editable: Editable) {}
         })
-        // EditText con un solo "."
         val patrimonionetto7 = findViewById<EditText>(R.id.patrimonionetto_7)
         patrimonionetto7.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {}
             override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
-                // Controlla se viene inserito un secondo "."
                 if (charSequence.toString().contains(".") && charSequence.toString()
                         .lastIndexOf(".") != charSequence.toString().indexOf(".")
                 ) {
-                    // Rimuovi il secondo "."
                     patrimonionetto7.setText(
                         charSequence.toString().substring(
                             0,
@@ -274,7 +260,6 @@ class statopatrimoniale() : AppCompatActivity() {
                 if (charSequence.toString().contains("-") && charSequence.toString()
                         .lastIndexOf("-") != charSequence.toString().indexOf("-")
                 ) {
-                    // Rimuovi il secondo "."
                     patrimonionetto7.setText(
                         charSequence.toString().substring(
                             0,
@@ -288,16 +273,13 @@ class statopatrimoniale() : AppCompatActivity() {
 
             override fun afterTextChanged(editable: Editable) {}
         })
-        // EditText con un solo "."
         val patrimonionetto10 = findViewById<EditText>(R.id.patrimonionetto_10)
         patrimonionetto10.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {}
             override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
-                // Controlla se viene inserito un secondo "."
                 if (charSequence.toString().contains(".") && charSequence.toString()
                         .lastIndexOf(".") != charSequence.toString().indexOf(".")
                 ) {
-                    // Rimuovi il secondo "."
                     patrimonionetto10.setText(
                         charSequence.toString().substring(
                             0,
@@ -310,7 +292,6 @@ class statopatrimoniale() : AppCompatActivity() {
                 if (charSequence.toString().contains("-") && charSequence.toString()
                         .lastIndexOf("-") != charSequence.toString().indexOf("-")
                 ) {
-                    // Rimuovi il secondo "."
                     patrimonionetto10.setText(
                         charSequence.toString().substring(
                             0,
@@ -324,18 +305,15 @@ class statopatrimoniale() : AppCompatActivity() {
 
             override fun afterTextChanged(editable: Editable) {}
         })
-        // EditText con un solo "."
         val immobilizzazionifinanziarienonimmobilizzate3punto2 =
             findViewById<EditText>(R.id.immobilizzazionifinanziarienonimmobilizzate_3_2)
         immobilizzazionifinanziarienonimmobilizzate3punto2.addTextChangedListener(object :
             TextWatcher {
             override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {}
             override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
-                // Controlla se viene inserito un secondo "."
                 if (charSequence.toString().contains(".") && charSequence.toString()
                         .lastIndexOf(".") != charSequence.toString().indexOf(".")
                 ) {
-                    // Rimuovi il secondo "."
                     immobilizzazionifinanziarienonimmobilizzate3punto2.setText(
                         charSequence.toString().substring(
                             0,
@@ -350,7 +328,6 @@ class statopatrimoniale() : AppCompatActivity() {
                 if (charSequence.toString().contains("-") && charSequence.toString()
                         .lastIndexOf("-") != charSequence.toString().indexOf("-")
                 ) {
-                    // Rimuovi il secondo "."
                     immobilizzazionifinanziarienonimmobilizzate3punto2.setText(
                         charSequence.toString().substring(
                             0,
@@ -366,16 +343,13 @@ class statopatrimoniale() : AppCompatActivity() {
 
             override fun afterTextChanged(editable: Editable) {}
         })
-        //Edit text con un solo .
         val crediti5 = findViewById<EditText>(R.id.crediti_5)
         crediti5.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {}
             override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
-                // Controlla se viene inserito un secondo "."
                 if (charSequence.toString().contains(".") && charSequence.toString()
                         .lastIndexOf(".") != charSequence.toString().indexOf(".")
                 ) {
-                    // Rimuovi il secondo "."
                     crediti5.setText(
                         charSequence.toString().substring(
                             0,
@@ -388,7 +362,6 @@ class statopatrimoniale() : AppCompatActivity() {
                 if (charSequence.toString().contains("-") && charSequence.toString()
                         .lastIndexOf("-") != charSequence.toString().indexOf("-")
                 ) {
-                    // Rimuovi il secondo "."
                     crediti5.setText(
                         charSequence.toString().substring(
                             0,
@@ -403,16 +376,13 @@ class statopatrimoniale() : AppCompatActivity() {
             override fun afterTextChanged(editable: Editable) {}
         })
 
-// EditText con solo numeri e un solo "."
         val debiti13 = findViewById<EditText>(R.id.debiti_13)
         debiti13.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {}
             override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
-                // Controlla se viene inserito un secondo "."
                 if (charSequence.toString().contains(".") && charSequence.toString()
                         .lastIndexOf(".") != charSequence.toString().indexOf(".")
                 ) {
-                    // Rimuovi il secondo "."
                     debiti13.setText(
                         charSequence.toString().substring(
                             0,
@@ -425,7 +395,6 @@ class statopatrimoniale() : AppCompatActivity() {
                 if (charSequence.toString().contains("-") && charSequence.toString()
                         .lastIndexOf("-") != charSequence.toString().indexOf("-")
                 ) {
-                    // Rimuovi il secondo "."
                     debiti13.setText(
                         charSequence.toString().substring(
                             0,
@@ -443,7 +412,6 @@ class statopatrimoniale() : AppCompatActivity() {
         salvaBilancio.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {
 
-                // Creazione del workbook
                 val workbook = XSSFWorkbook()
                 val sheet = workbook.createSheet("Stato Patrimoniale")
                 var fileName: String = "statopatrimoniale.xlsx"
@@ -455,25 +423,20 @@ class statopatrimoniale() : AppCompatActivity() {
                     counter++
                 }
 
-                // crea una nuova istanza di ExcelFileSaver e esegui il salvataggio
                 val fileSaver = StatoPatrimonialeSaver(context)
                 val row = sheet.createRow(0)
                 sheet.addMergedRegion(CellRangeAddress.valueOf("A1:F1"))
 
-                // Creare stile di cella
                 val style: CellStyle = workbook.createCellStyle()
                 style.alignment = HorizontalAlignment.CENTER
-                // Crea un nuovo font e imposta la proprietà "bold" su true
                 val font: Font = workbook.createFont()
                 font.bold = true
 
-                // Crea un nuovo stile di cella e imposta il font creato sopra
                 val grassetto: CellStyle = workbook.createCellStyle()
                 grassetto.setFont(font)
                 val alcentro: CellStyle = workbook.createCellStyle()
                 alcentro.alignment = HorizontalAlignment.CENTER
                 alcentro.setFont(font)
-                // Creare un nuovo oggetto CellStyle e impostare l'allineamento orizzontale al centro
                 val stile: CellStyle = workbook.createCellStyle()
                 stile.alignment = HorizontalAlignment.CENTER
                 stile.setFont(font)
@@ -482,7 +445,6 @@ class statopatrimoniale() : AppCompatActivity() {
                 sottile.borderTop = BorderStyle.THIN
 
 
-                // Creare una cella e scrivere il testo "Stato Patrimoniale" al suo interno
                 val statopatrimoniale: Cell = row.createCell(0)
                 statopatrimoniale.setCellValue("STATO PATRIMONIALE")
                 statopatrimoniale.cellStyle = alcentro

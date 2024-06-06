@@ -13,7 +13,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.root_preferences, rootKey)
 
-        // Trova la preferenza del tema utilizzando la sua chiave
+
         val themePreference: ListPreference? = findPreference("theme")
         themePreference?.setOnPreferenceChangeListener { _, newValue ->
             val themeOption = newValue as String
@@ -21,14 +21,14 @@ class SettingsFragment : PreferenceFragmentCompat() {
             true
         }
 
-        // Trova e gestisci la preferenza "Condividi"
+
         val sharePreference: Preference? = findPreference("share")
         sharePreference?.setOnPreferenceClickListener {
             shareApp()
             true
         }
 
-        // Trova e gestisci la preferenza "Recensisci questa app"
+
         val reviewPreference: Preference? = findPreference("review")
         reviewPreference?.setOnPreferenceClickListener {
             reviewApp()
@@ -57,7 +57,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
     }
 
     private fun reviewApp() {
-        // Sostituisci "com.example.bilancio" con l'ID effettivo del pacchetto della tua app
+
         val uri = Uri.parse("market://details?id=com.example.bilancio")
         val goToMarket = Intent(Intent.ACTION_VIEW, uri).apply {
             addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY or

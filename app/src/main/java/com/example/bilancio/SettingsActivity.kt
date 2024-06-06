@@ -10,12 +10,12 @@ class SettingsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Ottiene le SharedPreferences
+        // Ottieni le SharedPreferences
         val preferences = PreferenceManager.getDefaultSharedPreferences(this)
-        // Ottiene il tema selezionato, con "system" come valore di default
+
         val selectedTheme = preferences.getString("theme", "system")
 
-        // Applica il tema in base alla selezione dell'utente o al valore di default
+
         applyTheme(selectedTheme)
         setContentView(R.layout.settings_activity)
         if (savedInstanceState == null) {
