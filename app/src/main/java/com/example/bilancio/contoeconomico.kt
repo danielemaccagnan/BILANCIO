@@ -582,9 +582,12 @@ class contoeconomico() : AppCompatActivity() {
                 val C40 = row40.createCell(2)
                 A40.setCellValue("18)")
                 B40.setCellValue("rivalutazione di attività finanziarie")
-                C40.cellFormula = "C41+42+43+44"
+                C40.cellFormula = "C41+C42+C43+C44"
                 B40.setCellStyle(grassetto)
                 C40.setCellStyle(grassetto)
+                if (C40.numericCellValue == 0.0) {
+                    C40.setCellValue("1")
+                }
 
 // Creating row 41
                 val row41 = sheet.createRow(40)
@@ -643,7 +646,7 @@ class contoeconomico() : AppCompatActivity() {
                 A45.setCellValue("19)")
                 B45.setCellValue("svalutazioni di attività finanziarie")
                 B45.setCellStyle(grassetto)
-                C45.cellFormula = "C46+47+48+49"
+                C45.cellFormula = "C46+C47+C48+C49"
                 C45.setCellStyle(grassetto)
 
 

@@ -29,7 +29,7 @@ class FileAdapter(private val context: Context, private val mFiles: ArrayList<Fi
                 android.R.color.holo_blue_light
             ) else context.resources.getColor(android.R.color.transparent)
         )
-        holder.itemView.setOnClickListener { v: View? -> openFile(currentFile) }
+        holder.itemView.setOnClickListener { v: View? -> openExcelFile(currentFile) }
         holder.itemView.setOnLongClickListener { v: View ->
             if (selectedItems.contains(position)) {
                 selectedItems.remove(position)
@@ -38,7 +38,7 @@ class FileAdapter(private val context: Context, private val mFiles: ArrayList<Fi
                 selectedItems.add(position)
                 v.setBackgroundColor(context.resources.getColor(android.R.color.holo_blue_light))
             }
-            true
+            true // Evento gestito
         }
     }
 
@@ -79,23 +79,19 @@ class FileAdapter(private val context: Context, private val mFiles: ArrayList<Fi
         notifyDataSetChanged()
     }
 
-    private fun openFile(file: File) {
-        val uri = FileProvider.getUriForFile(
-            context,
-            context.applicationContext.packageName + ".provider",
-            file
-        )
-        val intent = Intent(Intent.ACTION_VIEW)
-        intent.setDataAndType(
-            uri,
-            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-        )
-        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-        if (intent.resolveActivity(context.packageManager) != null) {
+    private fun openExcelFile(file: File) {
+        try {
+            val uri = FileProvider.getUriForFile(
+                context,
+                context.applicationContext.packageName + ".provider",
+                file
+            )
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.setDataAndType(uri, "application/vnd.ms-excel")
+            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
             context.startActivity(intent)
-        } else {
-            Toast.makeText(context, "Nessuna app trovata per aprire questo file", Toast.LENGTH_LONG)
-                .show()
+        } catch (e: Exception) {
+            Toast.makeText(context, "Impossibile aprire il file", Toast.LENGTH_SHORT).show()
         }
     }
 
