@@ -502,7 +502,7 @@ class contoeconomico() : AppCompatActivity() {
                 }
 
 
-                // Creating row 34
+
                 val row34 = sheet.createRow(33)
                 val A34 = row34.createCell(0)
                 val B34 = row34.createCell(1)
@@ -515,7 +515,6 @@ class contoeconomico() : AppCompatActivity() {
                 }
 
 
-// Creating row 35
                 val row35 = sheet.createRow(34)
                 val A35 = row35.createCell(0)
                 val B35 = row35.createCell(1)
@@ -527,7 +526,6 @@ class contoeconomico() : AppCompatActivity() {
                     C35.setCellValue(riga35)
                 }
 
-// Creating row 36
                 val row36 = sheet.createRow(35)
                 val A36 = row36.createCell(0)
                 val B36 = row36.createCell(1)
@@ -539,7 +537,6 @@ class contoeconomico() : AppCompatActivity() {
                     C36.setCellValue(riga36)
                 }
 
-// Creating row 37
                 val row37 = sheet.createRow(36)
                 val A37 = row37.createCell(0)
                 val B37 = row37.createCell(1)
@@ -552,7 +549,6 @@ class contoeconomico() : AppCompatActivity() {
                     C37.setCellValue(riga37)
                 }
 
-// Creating row 38
                 val row38 = sheet.createRow(37)
                 val A38 = row38.createCell(0)
                 val B38 = row38.createCell(1)
@@ -565,7 +561,6 @@ class contoeconomico() : AppCompatActivity() {
                     C38.setCellValue(riga38)
                 }
 
-// Creating row 39
                 val row39 = sheet.createRow(38)
                 val A39 = row39.createCell(0)
                 val B39 = row39.createCell(1)
@@ -575,7 +570,6 @@ class contoeconomico() : AppCompatActivity() {
                 B39.setCellValue("RETTIFICHE DI VALORE DI ATTIVITA' FINANZIARIE")
                 B39.setCellStyle(grassetto)
 
-// Creating row 40
                 val row40 = sheet.createRow(39)
                 val A40 = row40.createCell(0)
                 val B40 = row40.createCell(1)
@@ -589,7 +583,7 @@ class contoeconomico() : AppCompatActivity() {
                     C40.setCellValue("1")
                 }
 
-// Creating row 41
+
                 val row41 = sheet.createRow(40)
                 val A41 = row41.createCell(0)
                 val B41 = row41.createCell(1)
@@ -601,7 +595,7 @@ class contoeconomico() : AppCompatActivity() {
                     C41.setCellValue(riga41)
                 }
 
-// Creating row 42
+
                 val row42 = sheet.createRow(41)
                 val A42 = row42.createCell(0)
                 val B42 = row42.createCell(1)
@@ -614,7 +608,7 @@ class contoeconomico() : AppCompatActivity() {
                 }
 
 
-// Creating row 43
+
                 val row43 = sheet.createRow(42)
                 val A43 = row43.createCell(0)
                 val B43 = row43.createCell(1)
@@ -626,7 +620,7 @@ class contoeconomico() : AppCompatActivity() {
                     C43.setCellValue(riga43)
                 }
 
-// Creating row 44
+
                 val row44 = sheet.createRow(43)
                 val A44 = row44.createCell(0)
                 val B44 = row44.createCell(1)
@@ -638,7 +632,7 @@ class contoeconomico() : AppCompatActivity() {
                     C44.setCellValue(riga44)
                 }
 
-// Creating row 45
+
                 val row45 = sheet.createRow(44)
                 val A45 = row45.createCell(0)
                 val B45 = row45.createCell(1)
@@ -650,7 +644,6 @@ class contoeconomico() : AppCompatActivity() {
                 C45.setCellStyle(grassetto)
 
 
-// Creating row 46
                 val row46 = sheet.createRow(45)
                 val A46 = row46.createCell(0)
                 val B46 = row46.createCell(1)
@@ -663,7 +656,6 @@ class contoeconomico() : AppCompatActivity() {
                 }
 
 
-// Creating row 47
                 val row47 = sheet.createRow(46)
                 val A47 = row47.createCell(0)
                 val B47 = row47.createCell(1)
@@ -675,7 +667,6 @@ class contoeconomico() : AppCompatActivity() {
                     C47.setCellValue(riga47)
                 }
 
-// Creating row 48
                 val row48 = sheet.createRow(47)
                 val A48 = row48.createCell(0)
                 val B48 = row48.createCell(1)
@@ -686,8 +677,6 @@ class contoeconomico() : AppCompatActivity() {
                     val riga48 = r48!!.getText().toString().toDouble()
                     C48.setCellValue(riga48)
                 }
-
-// Creating row 49
                 val row49 = sheet.createRow(48)
                 val A49 = row49.createCell(0)
                 val B49 = row49.createCell(1)
@@ -699,13 +688,11 @@ class contoeconomico() : AppCompatActivity() {
                     C49.setCellValue(riga49)
                 }
 
-// Creating row 50
                 val row50 = sheet.createRow(49)
                 val A50 = row50.createCell(0)
                 val B50 = row50.createCell(1)
                 val C50 = row50.createCell(2)
 
-// Creating row 51
                 val row51 = sheet.createRow(50)
                 val A51 = row51.createCell(0)
                 val B51 = row51.createCell(1)
@@ -716,13 +703,11 @@ class contoeconomico() : AppCompatActivity() {
                 C51.setCellStyle(grassetto)
 
 
-// Creating row 52
                 val row52 = sheet.createRow(51)
                 val A52 = row52.createCell(0)
                 val B52 = row52.createCell(1)
                 val C52 = row52.createCell(2)
 
-// Creating row 53
                 val row53 = sheet.createRow(52)
                 val A53 = row53.createCell(0)
                 val B53 = row53.createCell(1)
@@ -734,13 +719,11 @@ class contoeconomico() : AppCompatActivity() {
                 C53.cellFormula = "C55+C56"
                 C53.setCellStyle(grassetto)
 
-// Creating row 54
                 val row54 = sheet.createRow(53)
                 val A54 = row54.createCell(0)
                 val B54 = row54.createCell(1)
                 val C54 = row54.createCell(2)
 
-// Creating row 55
                 val row55 = sheet.createRow(54)
                 val A55 = row55.createCell(0)
                 val B55 = row55.createCell(1)
@@ -753,7 +736,6 @@ class contoeconomico() : AppCompatActivity() {
                     C55.setCellValue(riga55)
                 }
 
-// Creating row 56
                 val row56 = sheet.createRow(55)
                 val A56 = row56.createCell(0)
                 val B56 = row56.createCell(1)
@@ -766,13 +748,11 @@ class contoeconomico() : AppCompatActivity() {
                     C56.setCellValue(riga56)
                 }
 
-// Creating row 57
                 val row57 = sheet.createRow(56)
                 val A57 = row57.createCell(0)
                 val B57 = row57.createCell(1)
                 val C57 = row57.createCell(2)
 
-// Creating row 58
                 val row58 = sheet.createRow(57)
                 val A58 = row58.createCell(0)
                 val B58 = row58.createCell(1)
@@ -783,7 +763,6 @@ class contoeconomico() : AppCompatActivity() {
                 C58.setCellStyle(grassetto)
 
 
-// Creating row 59
                 val row59 = sheet.createRow(58)
                 val A59 = row59.createCell(0)
                 val B59 = row59.createCell(1)
@@ -796,7 +775,6 @@ class contoeconomico() : AppCompatActivity() {
                     C59.setCellValue(riga59)
                 }
 
-// Creating row 60
                 val row60 = sheet.createRow(59)
                 val A60 = row60.createCell(0)
                 val B60 = row60.createCell(1)
@@ -808,7 +786,6 @@ class contoeconomico() : AppCompatActivity() {
                 C60.cellFormula = "C58-C59"
                 C60.setCellStyle(grassetto)
 
-// Creating row 61
                 val row61 = sheet.createRow(60)
                 val A61 = row61.createCell(0)
                 val B61 = row61.createCell(1)

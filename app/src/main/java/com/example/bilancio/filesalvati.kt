@@ -30,7 +30,7 @@ class filesalvati : AppCompatActivity() {
             shareFiles(selectedFiles)
         }
         recyclerView = findViewById(R.id.recyclerViewFiles)
-        recyclerView!!.setLayoutManager(LinearLayoutManager(this))
+        recyclerView!! .setLayoutManager(LinearLayoutManager(this))
         populateRecyclerView()
     }
 

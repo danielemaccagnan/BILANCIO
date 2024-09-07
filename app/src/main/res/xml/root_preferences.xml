@@ -14,7 +14,7 @@
 
     </PreferenceCategory>
 
-    <!-- Sezione Altri -->
+
     <PreferenceCategory
         android:title="ALTRI">
 
@@ -30,7 +30,7 @@
 
     </PreferenceCategory>
 
-    <!-- Sezione Versione -->
+
     <PreferenceCategory
         android:title="VERSIONE">
 

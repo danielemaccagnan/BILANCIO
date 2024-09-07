@@ -192,6 +192,7 @@ class statopatrimoniale() : AppCompatActivity() {
                             true
                         }
 
+
                         else -> false
                     }
                 })

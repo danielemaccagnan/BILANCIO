@@ -2,26 +2,22 @@
 
     <!-- Tema Base dell'App con supporto alla Modalità Notte -->
     <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
-        <!-- Configurazioni di base comuni a entrambe le modalità -->
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowActionBar">false</item>
-        <!-- Personalizzazioni specifiche del tema possono essere aggiunte qui -->
+
     </style>
 
-    <!-- Tema Chiaro Esplicito, se necessario -->
+    <!-- Tema Chiaro -->
     <style name="AppTheme.Light" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Configurazioni specifiche per il tema chiaro -->
         <item name="android:windowBackground">@android:color/white</item>
         <item name="android:textColor">@android:color/black</item>
-        <!-- Altre personalizzazioni specifiche del tema chiaro -->
     </style>
 
-    <!-- Tema Scuro Esplicito, se necessario -->
+    <!-- Tema Scuro -->
     <style name="AppTheme.Dark" parent="Theme.AppCompat.NoActionBar">
-        <!-- Configurazioni specifiche per il tema scuro -->
         <item name="android:windowBackground">@android:color/black</item>
         <item name="android:textColor">@android:color/white</item>
-        <!-- Altre personalizzazioni specifiche del tema scuro -->
     </style>
 
         <style name="TextWithOutline">
